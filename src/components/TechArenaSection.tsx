@@ -46,8 +46,8 @@ export default function TechArenaSection() {
 
       scrollTl.fromTo(
         droneRef.current,
-        { y: '60vh', scale: 0.85, rotate: -6, opacity: 0 },
-        { y: 0, scale: 1, rotate: 0, opacity: 1, ease: 'none' },
+        { y: '76vh', scale: 0.85, rotate: -6, opacity: 0 },
+        { y: '24vh', scale: 1, rotate: 0, opacity: 1, ease: 'none' },
         0
       );
 
@@ -91,7 +91,7 @@ export default function TechArenaSection() {
 
       scrollTl.fromTo(
         droneRef.current,
-        { y: 0, scale: 1, opacity: 1 },
+        { y: '6vh', scale: 1, opacity: 1 },
         { y: '28vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
         0.7
       );

@@ -185,7 +185,7 @@ export default function RoboRaceSection() {
       </div>
 
       {/* Vehicle image - professional flexbox centering */}
-      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+      <div className="absolute inset-0 mt-10 flex items-center justify-center z-10 pointer-events-none">
         <img
           ref={vehicleRef}
           src="/roborace_vehicle.png"

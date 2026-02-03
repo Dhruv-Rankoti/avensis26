@@ -68,7 +68,7 @@ export default function ValentineSection() {
       scrollTl.fromTo(
         heartRef.current,
         { y: '60vh', scale: 0.7, opacity: 0 },
-        { y: 0, scale: 1, opacity: 1, ease: 'none' },
+        { y: '8vh', scale: 1, opacity: 1, ease: 'none' },
         0
       );
 
@@ -105,7 +105,7 @@ export default function ValentineSection() {
 
       scrollTl.fromTo(
         heartRef.current,
-        { y: 0, scale: 1, opacity: 1 },
+        { y: '8vh', scale: 1, opacity: 1 },
         { y: '22vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
         0.7
       );
@@ -194,7 +194,7 @@ export default function ValentineSection() {
       {/* Tagline */}
       <p
         ref={taglineRef}
-        className="absolute left-1/2 top-[22%] -translate-x-1/2 font-inter text-[clamp(14px,1.4vw,20px)] text-[#A7B0C8] tracking-[0.2em] uppercase z-20"
+        className="absolute left-1/2 top-[26%] -translate-x-1/2 font-inter text-[clamp(14px,1.4vw,20px)] text-[#A7B0C8] tracking-[0.2em] uppercase z-20"
         style={{ opacity: 0 }}
       >
         Where hearts sync with circuits
@@ -212,7 +212,7 @@ export default function ValentineSection() {
       </div>
 
       {/* Event schedule preview */}
-      <div className="absolute left-1/2 top-[72%] -translate-x-1/2 flex gap-6 z-20">
+      <div className="absolute left-1/2 top-[90%] -translate-x-1/2 flex gap-6 z-20">
         <div className="flex items-center gap-2 px-4 py-2 bg-[#0B0E16]/80 border border-[#FF2BD6]/30 rounded-lg backdrop-blur-sm">
           <Calendar size={16} className="text-[#FF2BD6]" />
           <span className="font-mono text-xs text-[#A7B0C8]">Feb 14-20</span>

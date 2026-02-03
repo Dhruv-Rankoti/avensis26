@@ -23,7 +23,7 @@ export default function HeroSection() {
       tl.fromTo(
         robotRef.current,
         { y: '18vh', scale: 0.92, opacity: 0 },
-        { y: 0, scale: 1, opacity: 1, duration: 0.9 },
+        { y: '12vh', scale: 1, opacity: 1, duration: 0.9 },
         0.2
       );
 
@@ -119,7 +119,7 @@ export default function HeroSection() {
 
       scrollTl.fromTo(
         robotRef.current,
-        { y: 0, scale: 1, opacity: 1 },
+        { y: '12vh', scale: 1, opacity: 1 },
         { y: '22vh', scale: 0.95, opacity: 0, ease: 'power2.in' },
         0.7
       );
@@ -226,7 +226,7 @@ export default function HeroSection() {
       {/* Tagline */}
       <p
         ref={taglineRef}
-        className="absolute left-1/2 top-[24%] -translate-x-1/2 font-inter font-medium text-[clamp(14px,1.4vw,20px)] text-[#A7B0C8] tracking-[0.3em] uppercase z-20"
+        className="absolute left-1/2 top-[28%] -translate-x-1/2 font-inter font-medium text-[clamp(14px,1.4vw,20px)] text-[#A7B0C8] tracking-[0.3em] uppercase z-20"
         style={{ opacity: 0 }}
       >
         Enter the Future
