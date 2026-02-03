@@ -192,14 +192,16 @@ export default function EsportsSection() {
         ESPORTS ZONE
       </h2>
 
-      {/* Controller image - center */}
-      <img
-        ref={controllerRef}
-        src="/esports_controller.png"
-        alt="Gaming Controller"
-        className="absolute left-1/2 top-[58%] -translate-x-1/2 -translate-y-1/2 w-[52vw] max-w-195 h-auto object-contain z-10"
-        style={{ opacity: 0, perspective: '1000px' }}
-      />
+      {/* Controller image - professional flexbox centering */}
+      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+        <img
+          ref={controllerRef}
+          src="/esports_controller.png"
+          alt="Gaming Controller"
+          className="w-[52vw] max-w-195 h-auto object-contain"
+          style={{ opacity: 0, perspective: '1000px' }}
+        />
+      </div>
 
       {/* Descriptor - bottom center */}
       <div

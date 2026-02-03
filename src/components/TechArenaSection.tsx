@@ -150,14 +150,16 @@ export default function TechArenaSection() {
         </h2>
       </div>
 
-      {/* Drone image - center */}
-      <img
-        ref={droneRef}
-        src="/tech_drone.png"
-        alt="Tech Drone"
-        className="absolute left-1/2 top-[62%] -translate-x-1/2 -translate-y-1/2 w-[54vw] max-w-205 h-auto object-contain z-10 floating"
-        style={{ opacity: 0 }}
-      />
+      {/* Drone image - professional flexbox centering */}
+      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+        <img
+          ref={droneRef}
+          src="/tech_drone.png"
+          alt="Tech Drone"
+          className="w-[54vw] max-w-205 h-auto object-contain floating"
+          style={{ opacity: 0 }}
+        />
+      </div>
 
       {/* Descriptor - right side */}
       <div

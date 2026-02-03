@@ -200,14 +200,16 @@ export default function HeroSection() {
         </svg>
       </div>
 
-      {/* Robot image */}
-      <img
-        ref={robotRef}
-        src="/hero_robot.png"
-        alt="Futuristic Robot"
-        className="absolute left-1/2 top-[56%] -translate-x-1/2 -translate-y-1/2 w-[62vw] max-w-225 h-auto object-contain z-10 floating"
-        style={{ opacity: 0 }}
-      />
+      {/* Robot image - professional flexbox centering */}
+      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+        <img
+          ref={robotRef}
+          src="/hero_robot.png"
+          alt="Futuristic Robot"
+          className="w-[62vw] max-w-225 h-auto object-contain floating"
+          style={{ opacity: 0 }}
+        />
+      </div>
 
       {/* Title */}
       <h1

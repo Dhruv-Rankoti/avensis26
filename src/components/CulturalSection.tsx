@@ -156,14 +156,16 @@ export default function CulturalSection() {
         CULTURAL & FUN
       </h2>
 
-      {/* Stage image - center */}
-      <img
-        ref={stageRef}
-        src="/cultural_stage.png"
-        alt="Cultural Stage"
-        className="absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 w-[56vw] max-w-210 h-auto object-contain z-10 rounded-xl overflow-hidden"
-        style={{ opacity: 0, perspective: '1000px' }}
-      />
+      {/* Stage image - professional flexbox centering */}
+      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+        <img
+          ref={stageRef}
+          src="/cultural_stage.png"
+          alt="Cultural Stage"
+          className="w-[56vw] max-w-210 h-auto object-contain rounded-xl overflow-hidden"
+          style={{ opacity: 0, perspective: '1000px' }}
+        />
+      </div>
 
       {/* Descriptor - bottom center */}
       <div

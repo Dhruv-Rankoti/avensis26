@@ -200,14 +200,16 @@ export default function ValentineSection() {
         Where hearts sync with circuits
       </p>
 
-      {/* Heart image - center */}
-      <img
-        ref={heartRef}
-        src="/valentine_heart.png"
-        alt="Circuit Heart"
-        className="absolute left-1/2 top-[58%] -translate-x-1/2 -translate-y-1/2 w-[46vw] max-w-170 h-auto object-contain z-10"
-        style={{ opacity: 0 }}
-      />
+      {/* Heart image - professional flexbox centering */}
+      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+        <img
+          ref={heartRef}
+          src="/valentine_heart.png"
+          alt="Circuit Heart"
+          className="w-[46vw] max-w-170 h-auto object-contain"
+          style={{ opacity: 0 }}
+        />
+      </div>
 
       {/* Event schedule preview */}
       <div className="absolute left-1/2 top-[72%] -translate-x-1/2 flex gap-6 z-20">

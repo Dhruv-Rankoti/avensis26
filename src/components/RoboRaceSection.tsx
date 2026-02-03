@@ -184,14 +184,16 @@ export default function RoboRaceSection() {
         </h2>
       </div>
 
-      {/* Vehicle image - center */}
-      <img
-        ref={vehicleRef}
-        src="/roborace_vehicle.png"
-        alt="RoboRace Vehicle"
-        className="absolute left-1/2 top-[56%] -translate-x-1/2 -translate-y-1/2 w-[58vw] max-w-215 h-auto object-contain z-10"
-        style={{ opacity: 0 }}
-      />
+      {/* Vehicle image - professional flexbox centering */}
+      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+        <img
+          ref={vehicleRef}
+          src="/roborace_vehicle.png"
+          alt="RoboRace Vehicle"
+          className="w-[58vw] max-w-215 h-auto object-contain"
+          style={{ opacity: 0 }}
+        />
+      </div>
 
       {/* Race stats overlay */}
       <div className="absolute left-1/2 top-[30%] -translate-x-1/2 flex gap-8 z-20">
