@@ -223,17 +223,6 @@ export default function RoboRaceSection() {
         </div>
       </div>
 
-      {/* CTA - bottom center on mobile, bottom right on desktop */}
-      <button
-        ref={ctaRef}
-        className="absolute left-1/2 md:left-auto right-auto md:right-[7vw] top-[94%] md:top-[86%] -translate-x-1/2 md:translate-x-0 cyber-button border-[#FFAA2B] z-20 group text-sm md:text-base"
-        style={{ opacity: 0 }}
-      >
-        <span className="relative z-10 flex items-center gap-2">
-          <Flag size={16} />
-          See the Track
-        </span>
-      </button>
 
       {/* Sector label - bottom left, hidden on mobile */}
       <span

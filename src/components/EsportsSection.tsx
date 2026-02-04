@@ -244,18 +244,6 @@ export default function EsportsSection() {
         </div>
       </div>
 
-      {/* CTA - bottom center on mobile, bottom right on desktop */}
-      <button
-        ref={ctaRef}
-        className="absolute left-1/2 md:left-auto right-auto md:right-[7vw] top-[90%] md:top-[86%] -translate-x-1/2 md:translate-x-0 cyber-button border-[#00F0FF] z-20 group text-sm md:text-base"
-        style={{ opacity: 0 }}
-      >
-        <span className="relative z-10 flex items-center gap-2">
-          <Gamepad2 size={16} />
-          Join the Lobby
-        </span>
-      </button>
-
       {/* Neon rim lighting effect */}
       <div className="absolute left-1/2 top-[58%] -translate-x-1/2 -translate-y-1/2 w-[60vw] max-w-225 h-[60vh] bg-gradient-radial from-[#00F0FF]/10 via-transparent to-transparent blur-3xl pointer-events-none" />
     </section>

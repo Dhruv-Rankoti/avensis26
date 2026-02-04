@@ -163,7 +163,7 @@ export default function TechArenaSection() {
       </div>
 
       {/* Drone image - professional flexbox centering */}
-      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+      <div className="absolute inset-0 flex items-center mt-96 justify-center z-10 pointer-events-none">
         <img
           ref={droneRef}
           src="/tech_drone.png"
@@ -200,18 +200,6 @@ export default function TechArenaSection() {
           </div>
         </div>
       </div>
-
-      {/* CTA - bottom center on mobile, bottom right on desktop */}
-      <button
-        ref={ctaRef}
-        className="absolute left-1/2 -translate-x-1/2 bottom-[5vh] cyber-button z-20 group text-sm md:text-base"
-        style={{ opacity: 0 }}
-      >
-        <span className="relative z-10 flex items-center gap-2">
-          View Tech Events
-          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-        </span>
-      </button>
 
       {/* Sector label - bottom left */}
       <span
