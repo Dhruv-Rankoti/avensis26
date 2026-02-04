@@ -204,8 +204,8 @@ export default function TechArenaSection() {
       {/* CTA - bottom center on mobile, bottom right on desktop */}
       <button
         ref={ctaRef}
-        className="absolute left-1/2 md:left-auto right-auto md:right-[7vw] top-[88%] md:top-[86%] -translate-x-1/2 md:translate-x-0 cyber-button z-20 group text-sm md:text-base"
-        style={{ opacity: 0 }}
+        className="absolute left-1/2 md:left-auto right-auto md:right-[7vw] top-[94%] md:top-[86%] -translate-x-1/2 md:translate-x-0 cyber-button z-20 group text-sm md:text-base"
+        style={{ opacity: 0, ...(window.innerWidth < 768 ? { left: '50%', right: 'auto', top: '94%', transform: 'translateX(-50%)', margin: 0 } : {}) }}
       >
         <span className="relative z-10 flex items-center gap-2">
           View Tech Events
