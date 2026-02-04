@@ -280,7 +280,8 @@ export default function ScheduleSection() {
     <section
       ref={sectionRef}
       id="schedule"
-      className="relative w-full bg-[#05060B] py-20 lg:py-32"
+      className="relative w-full bg-[#05060B] py-20 lg:py-32 overflow-x-hidden"
+      style={{ maxWidth: '100vw' }}
     >
       {/* Circuit pattern background */}
       <div className="absolute inset-0 opacity-5">
@@ -295,7 +296,7 @@ export default function ScheduleSection() {
         </svg>
       </div>
 
-      <div className="relative w-full px-6 lg:px-12">
+      <div className="relative w-full max-w-[100vw] px-4 sm:px-6 lg:px-12 box-border overflow-x-hidden">
         {/* Header */}
         <div ref={headerRef} className="mb-12">
           <h2 className="font-orbitron font-black text-[clamp(36px,4vw,64px)] text-[#F4F6FF] tracking-widest text-glow-violet mb-4">
@@ -326,11 +327,11 @@ export default function ScheduleSection() {
         </div>
 
         {/* Timeline */}
-        <div ref={contentRef} className="relative">
+        <div ref={contentRef} className="relative overflow-x-hidden">
           {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#7B2BFF] via-[#00F0FF] to-[#7B2BFF] opacity-30" />
+          <div className="absolute left-8 top-0 bottom-0 w-px bg-linear-to-b from-[#7B2BFF] via-[#00F0FF] to-[#7B2BFF] opacity-30 pointer-events-none" style={{ maxHeight: '100%' }} />
           
-          <div className="space-y-6">
+          <div className="space-y-6 max-w-full">
             {scheduleData[activeDay].events
               .sort((a, b) => {
                 // Convert time to comparable format
@@ -344,7 +345,7 @@ export default function ScheduleSection() {
                 className="timeline-item relative flex items-start gap-6 group"
               >
                 {/* Time marker */}
-                <div className="relative flex-shrink-0">
+                <div className="relative shrink-0">
                   <div 
                     className="w-4 h-4 rounded-full border-2 border-current pulse-glow"
                     style={{ color: typeColors[event.type as keyof typeof typeColors] }}
