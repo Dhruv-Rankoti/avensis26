@@ -19,6 +19,8 @@ export default function TechArenaSection() {
     if (!section) return;
 
     const ctx = gsap.context(() => {
+      const isMobile = window.innerWidth < 768;
+      
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -74,48 +76,50 @@ export default function TechArenaSection() {
 
       // SETTLE (30% - 70%): Hold positions
 
-      // EXIT (70% - 100%)
-      scrollTl.fromTo(
-        titleTechRef.current,
-        { x: 0, opacity: 1 },
-        { x: '-22vw', opacity: 0, ease: 'power2.in' },
-        0.7
-      );
+      // EXIT (70% - 100%) - Desktop only
+      if (!isMobile) {
+        scrollTl.fromTo(
+          titleTechRef.current,
+          { x: 0, opacity: 1 },
+          { x: '-22vw', opacity: 0, ease: 'power2.in' },
+          0.7
+        );
 
-      scrollTl.fromTo(
-        titleArenaRef.current,
-        { x: 0, opacity: 1 },
-        { x: '-22vw', opacity: 0, ease: 'power2.in' },
-        0.72
-      );
+        scrollTl.fromTo(
+          titleArenaRef.current,
+          { x: 0, opacity: 1 },
+          { x: '-22vw', opacity: 0, ease: 'power2.in' },
+          0.72
+        );
 
-      scrollTl.fromTo(
-        droneRef.current,
-        { y: '6vh', scale: 1, opacity: 1 },
-        { y: '28vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
-        0.7
-      );
+        scrollTl.fromTo(
+          droneRef.current,
+          { y: '6vh', scale: 1, opacity: 1 },
+          { y: '28vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
+          0.7
+        );
 
-      scrollTl.fromTo(
-        descriptorRef.current,
-        { x: 0, opacity: 1 },
-        { x: '10vw', opacity: 0, ease: 'power2.in' },
-        0.75
-      );
+        scrollTl.fromTo(
+          descriptorRef.current,
+          { x: 0, opacity: 1 },
+          { x: '10vw', opacity: 0, ease: 'power2.in' },
+          0.75
+        );
 
-      scrollTl.fromTo(
-        ctaRef.current,
-        { x: 0, opacity: 1 },
-        { x: '10vw', opacity: 0, ease: 'power2.in' },
-        0.78
-      );
+        scrollTl.fromTo(
+          ctaRef.current,
+          { x: 0, opacity: 1 },
+          { x: '10vw', opacity: 0, ease: 'power2.in' },
+          0.78
+        );
 
-      scrollTl.fromTo(
-        labelRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.8
-      );
+        scrollTl.fromTo(
+          labelRef.current,
+          { opacity: 1 },
+          { opacity: 0, ease: 'power2.in' },
+          0.8
+        );
+      }
     }, section);
 
     return () => ctx.revert();
@@ -129,23 +133,23 @@ export default function TechArenaSection() {
       {/* Hex grid overlay */}
       <div className="absolute inset-0 bg-linear-to-b from-[#05060B] via-transparent to-[#05060B]" />
 
-      {/* Title stack - left side */}
+      {/* Title stack - left side on desktop, centered on mobile */}
       <div
         ref={titleTechRef}
-        className="absolute left-[7vw] top-[18%] z-20"
+        className="absolute left-1/2 md:left-[7vw] top-[14%] md:top-[18%] -translate-x-1/2 md:translate-x-0 z-20 text-center md:text-left"
         style={{ opacity: 0 }}
       >
-        <h2 className="font-orbitron font-black text-[clamp(56px,7.5vw,120px)] text-[#F4F6FF] tracking-widest text-glow-violet">
+        <h2 className="font-orbitron font-black text-[clamp(40px,7.5vw,120px)] text-[#F4F6FF] tracking-widest text-glow-violet">
           TECH
         </h2>
       </div>
 
       <div
         ref={titleArenaRef}
-        className="absolute left-[7vw] top-[32%] z-20"
+        className="absolute left-1/2 md:left-[7vw] top-[24%] md:top-[32%] -translate-x-1/2 md:translate-x-0 z-20 text-center md:text-left"
         style={{ opacity: 0 }}
       >
-        <h2 className="font-orbitron font-black text-[clamp(56px,7.5vw,120px)] text-[#F4F6FF] tracking-widest text-glow-cyan">
+        <h2 className="font-orbitron font-black text-[clamp(40px,7.5vw,120px)] text-[#F4F6FF] tracking-widest text-glow-cyan">
           ARENA
         </h2>
       </div>
@@ -156,43 +160,43 @@ export default function TechArenaSection() {
           ref={droneRef}
           src="/tech_drone.png"
           alt="Tech Drone"
-          className="w-[54vw] max-w-205 h-auto object-contain floating"
+          className="w-[80vw] md:w-[54vw] max-w-205 h-auto object-contain floating"
           style={{ opacity: 0 }}
         />
       </div>
 
-      {/* Descriptor - right side */}
+      {/* Descriptor - right side on desktop, bottom on mobile */}
       <div
         ref={descriptorRef}
-        className="absolute left-[56vw] top-[26%] w-[38vw] z-20"
+        className="absolute left-1/2 md:left-[56vw] top-[72%] md:top-[26%] -translate-x-1/2 md:translate-x-0 w-[85vw] md:w-[38vw] z-20 text-center md:text-left"
         style={{ opacity: 0 }}
       >
-        <p className="font-inter text-[clamp(14px,1.2vw,18px)] text-[#A7B0C8] leading-relaxed">
+        <p className="font-inter text-[clamp(12px,1.2vw,18px)] text-[#A7B0C8] leading-relaxed">
           Hackathons. AI builds. UI wars. Compete for glory and prizes in the ultimate
           battleground of innovation.
         </p>
 
         {/* Event categories */}
-        <div className="flex flex-wrap gap-3 mt-6">
-          <div className="flex items-center gap-2 px-4 py-2 bg-[#0B0E16] border border-[#7B2BFF]/30 rounded-lg">
-            <Code size={16} className="text-[#7B2BFF]" />
-            <span className="font-mono text-xs text-[#A7B0C8]">Coding</span>
+        <div className="flex flex-wrap justify-center md:justify-start gap-2 md:gap-3 mt-4 md:mt-6">
+          <div className="flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-[#0B0E16] border border-[#7B2BFF]/30 rounded-lg">
+            <Code size={14} className="text-[#7B2BFF]" />
+            <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">Coding</span>
           </div>
-          <div className="flex items-center gap-2 px-4 py-2 bg-[#0B0E16] border border-[#00F0FF]/30 rounded-lg">
-            <Cpu size={16} className="text-[#00F0FF]" />
-            <span className="font-mono text-xs text-[#A7B0C8]">AI/ML</span>
+          <div className="flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-[#0B0E16] border border-[#00F0FF]/30 rounded-lg">
+            <Cpu size={14} className="text-[#00F0FF]" />
+            <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">AI/ML</span>
           </div>
-          <div className="flex items-center gap-2 px-4 py-2 bg-[#0B0E16] border border-[#FF2BD6]/30 rounded-lg">
-            <Palette size={16} className="text-[#FF2BD6]" />
-            <span className="font-mono text-xs text-[#A7B0C8]">Design</span>
+          <div className="flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-[#0B0E16] border border-[#FF2BD6]/30 rounded-lg">
+            <Palette size={14} className="text-[#FF2BD6]" />
+            <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">Design</span>
           </div>
         </div>
       </div>
 
-      {/* CTA - bottom right */}
+      {/* CTA - bottom center on mobile, bottom right on desktop */}
       <button
         ref={ctaRef}
-        className="absolute right-[7vw] top-[86%] cyber-button z-20 group"
+        className="absolute left-1/2 md:left-auto right-auto md:right-[7vw] top-[88%] md:top-[86%] -translate-x-1/2 md:translate-x-0 cyber-button z-20 group text-sm md:text-base"
         style={{ opacity: 0 }}
       >
         <span className="relative z-10 flex items-center gap-2">
@@ -204,7 +208,7 @@ export default function TechArenaSection() {
       {/* Sector label - bottom left */}
       <span
         ref={labelRef}
-        className="absolute left-[7vw] top-[86%] font-mono text-xs text-[#A7B0C8]/60 tracking-widest z-20"
+        className="absolute left-[4vw] md:left-[7vw] top-[88%] md:top-[86%] font-mono text-[9px] md:text-xs text-[#A7B0C8]/60 tracking-widest z-20 hidden md:block"
         style={{ opacity: 0 }}
       >
         SECTOR 01

@@ -40,6 +40,8 @@ export default function ValentineSection() {
     if (!section) return;
 
     const ctx = gsap.context(() => {
+      const isMobile = window.innerWidth < 768;
+      
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -88,41 +90,43 @@ export default function ValentineSection() {
 
       // SETTLE (30% - 70%): Hold
 
-      // EXIT (70% - 100%)
-      scrollTl.fromTo(
-        titleRef.current,
-        { y: 0, opacity: 1 },
-        { y: '-12vh', opacity: 0, ease: 'power2.in' },
-        0.7
-      );
+      // EXIT (70% - 100%) - Desktop only
+      if (!isMobile) {
+        scrollTl.fromTo(
+          titleRef.current,
+          { y: 0, opacity: 1 },
+          { y: '-12vh', opacity: 0, ease: 'power2.in' },
+          0.7
+        );
 
-      scrollTl.fromTo(
-        taglineRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.72
-      );
+        scrollTl.fromTo(
+          taglineRef.current,
+          { opacity: 1 },
+          { opacity: 0, ease: 'power2.in' },
+          0.72
+        );
 
-      scrollTl.fromTo(
-        heartRef.current,
-        { y: '8vh', scale: 1, opacity: 1 },
-        { y: '22vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
-        0.7
-      );
+        scrollTl.fromTo(
+          heartRef.current,
+          { y: '8vh', scale: 1, opacity: 1 },
+          { y: '22vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
+          0.7
+        );
 
-      scrollTl.fromTo(
-        circuitRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.75
-      );
+        scrollTl.fromTo(
+          circuitRef.current,
+          { opacity: 1 },
+          { opacity: 0, ease: 'power2.in' },
+          0.75
+        );
 
-      scrollTl.fromTo(
-        ctaRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.8
-      );
+        scrollTl.fromTo(
+          ctaRef.current,
+          { opacity: 1 },
+          { opacity: 0, ease: 'power2.in' },
+          0.8
+        );
+      }
     }, section);
 
     return () => ctx.revert();
@@ -185,7 +189,7 @@ export default function ValentineSection() {
       {/* Title - top center */}
       <h2
         ref={titleRef}
-        className="absolute left-1/2 top-[14%] -translate-x-1/2 font-orbitron font-black text-[clamp(40px,5vw,80px)] text-[#F4F6FF] tracking-[0.12em] text-glow-magenta z-20 whitespace-nowrap"
+        className="absolute left-1/2 top-[12%] md:top-[14%] -translate-x-1/2 font-orbitron font-black text-[clamp(28px,5vw,80px)] text-[#F4F6FF] tracking-[0.08em] md:tracking-[0.12em] text-glow-magenta z-20 whitespace-nowrap px-4"
         style={{ opacity: 0 }}
       >
         VALENTINE WEEK
@@ -194,7 +198,7 @@ export default function ValentineSection() {
       {/* Tagline */}
       <p
         ref={taglineRef}
-        className="absolute left-1/2 top-[26%] -translate-x-1/2 font-inter text-[clamp(14px,1.4vw,20px)] text-[#A7B0C8] tracking-[0.2em] uppercase z-20"
+        className="absolute left-1/2 top-[22%] md:top-[26%] -translate-x-1/2 font-inter text-[clamp(11px,1.4vw,20px)] text-[#A7B0C8] tracking-[0.12em] md:tracking-[0.2em] uppercase z-20 px-4 text-center"
         style={{ opacity: 0 }}
       >
         Where hearts sync with circuits
@@ -206,31 +210,31 @@ export default function ValentineSection() {
           ref={heartRef}
           src="/valentine_heart.png"
           alt="Circuit Heart"
-          className="w-[46vw] max-w-170 h-auto object-contain"
+          className="w-[75vw] md:w-[46vw] max-w-170 h-auto object-contain"
           style={{ opacity: 0 }}
         />
       </div>
 
       {/* Event schedule preview */}
-      <div className="absolute left-1/2 top-[85%] -translate-x-1/2 flex gap-6 z-20">
-        <div className="flex items-center gap-2 px-4 py-2 bg-[#0B0E16]/80 border border-[#FF2BD6]/30 rounded-lg backdrop-blur-sm">
-          <Calendar size={16} className="text-[#FF2BD6]" />
-          <span className="font-mono text-xs text-[#A7B0C8]">Feb 12-13</span>
+      <div className="absolute left-1/2 top-[82%] md:top-[85%] -translate-x-1/2 flex flex-wrap justify-center gap-3 md:gap-6 z-20 px-4">
+        <div className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-[#0B0E16]/80 border border-[#FF2BD6]/30 rounded-lg backdrop-blur-sm">
+          <Calendar size={14} className="text-[#FF2BD6]" />
+          <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">Feb 12-13</span>
         </div>
-        <div className="flex items-center gap-2 px-4 py-2 bg-[#0B0E16]/80 border border-[#7B2BFF]/30 rounded-lg backdrop-blur-sm">
-          <Gift size={16} className="text-[#7B2BFF]" />
-          <span className="font-mono text-xs text-[#A7B0C8]">Surprises</span>
+        <div className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-[#0B0E16]/80 border border-[#7B2BFF]/30 rounded-lg backdrop-blur-sm">
+          <Gift size={14} className="text-[#7B2BFF]" />
+          <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">Surprises</span>
         </div>
-        <div className="flex items-center gap-2 px-4 py-2 bg-[#0B0E16]/80 border border-[#00F0FF]/30 rounded-lg backdrop-blur-sm">
-          <Music size={16} className="text-[#00F0FF]" />
-          <span className="font-mono text-xs text-[#A7B0C8]">Live Music</span>
+        <div className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-[#0B0E16]/80 border border-[#00F0FF]/30 rounded-lg backdrop-blur-sm">
+          <Music size={14} className="text-[#00F0FF]" />
+          <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">Live Music</span>
         </div>
       </div>
 
-      {/* CTA - bottom right */}
+      {/* CTA - bottom center on mobile, bottom right on desktop */}
       <button
         ref={ctaRef}
-        className="absolute right-[7vw] top-[86%] cyber-button border-[#FF2BD6] z-20 group pulse-glow"
+        className="absolute left-1/2 md:left-auto right-auto md:right-[7vw] top-[92%] md:top-[86%] -translate-x-1/2 md:translate-x-0 cyber-button border-[#FF2BD6] z-20 group pulse-glow text-sm md:text-base"
         style={{ opacity: 0 }}
       >
         <span className="relative z-10 flex items-center gap-2">

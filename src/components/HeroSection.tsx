@@ -206,7 +206,7 @@ export default function HeroSection() {
           ref={robotRef}
           src="/hero_robot.png"
           alt="Futuristic Robot"
-          className="w-[62vw] max-w-225 h-auto object-contain floating"
+          className="w-[85vw] md:w-[62vw] max-w-225 h-auto object-contain floating"
           style={{ opacity: 0 }}
         />
       </div>
@@ -214,7 +214,7 @@ export default function HeroSection() {
       {/* Title */}
       <h1
         ref={titleRef}
-        className="absolute left-1/2 top-[14%] -translate-x-1/2 font-orbitron font-black text-[clamp(44px,6.2vw,96px)] text-[#F4F6FF] text-glow-violet tracking-[0.12em] z-20 whitespace-nowrap"
+        className="absolute left-1/2 top-[14%] md:top-[14%] -translate-x-1/2 font-orbitron font-black text-[clamp(32px,6.2vw,96px)] text-[#F4F6FF] text-glow-violet tracking-[0.08em] md:tracking-[0.12em] z-20 whitespace-nowrap"
       >
         {titleText.split('').map((char, i) => (
           <span key={i} className="char inline-block" style={{ opacity: 0 }}>
@@ -226,7 +226,7 @@ export default function HeroSection() {
       {/* Tagline */}
       <p
         ref={taglineRef}
-        className="absolute left-1/2 top-[28%] -translate-x-1/2 font-inter font-medium text-[clamp(14px,1.4vw,20px)] text-[#A7B0C8] tracking-[0.3em] uppercase z-20"
+        className="absolute left-1/2 top-[28%] md:top-[28%] -translate-x-1/2 font-inter font-medium text-[clamp(11px,1.4vw,20px)] text-[#A7B0C8] tracking-[0.15em] md:tracking-[0.3em] uppercase z-20"
         style={{ opacity: 0 }}
       >
         Enter the Future
@@ -235,10 +235,10 @@ export default function HeroSection() {
       {/* Microcopy */}
       <div
         ref={microcopyRef}
-        className="absolute left-[6vw] top-[62%] max-w-[28vw] z-20"
+        className="absolute left-1/2 md:left-[6vw] top-[68%] md:top-[62%] -translate-x-1/2 md:translate-x-0 max-w-[85vw] md:max-w-[28vw] text-center md:text-left z-20"
         style={{ opacity: 0 }}
       >
-        <p className="font-mono text-xs text-[#A7B0C8] leading-relaxed">
+        <p className="font-mono text-[10px] md:text-xs text-[#A7B0C8] leading-relaxed">
           <span className="text-[#7B2BFF]">{'>'}</span> Two days of tech, competition, and culture.
           <br />
           <span className="text-[#00F0FF]">{'>'}</span> Feb 12–13, 2026
@@ -248,7 +248,7 @@ export default function HeroSection() {
       {/* CTA Button */}
       <button
         ref={ctaRef}
-        className="absolute right-[6vw] top-[62%] cyber-button z-20 group"
+        className="absolute left-1/2 md:left-auto right-auto md:right-[6vw] top-[78%] md:top-[62%] -translate-x-1/2 md:translate-x-0 cyber-button z-20 group text-sm md:text-base"
         style={{ opacity: 0 }}
         onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}
       >
@@ -259,10 +259,10 @@ export default function HeroSection() {
       </button>
 
       {/* Decorative corner elements */}
-      <div className="absolute top-20 left-6 w-16 h-16 border-l-2 border-t-2 border-[#7B2BFF]/30" />
-      <div className="absolute top-20 right-6 w-16 h-16 border-r-2 border-t-2 border-[#7B2BFF]/30" />
-      <div className="absolute bottom-6 left-6 w-16 h-16 border-l-2 border-b-2 border-[#7B2BFF]/30" />
-      <div className="absolute bottom-6 right-6 w-16 h-16 border-r-2 border-b-2 border-[#7B2BFF]/30" />
+      <div className="absolute top-16 md:top-20 left-3 md:left-6 w-10 h-10 md:w-16 md:h-16 border-l-2 border-t-2 border-[#7B2BFF]/30" />
+      <div className="absolute top-16 md:top-20 right-3 md:right-6 w-10 h-10 md:w-16 md:h-16 border-r-2 border-t-2 border-[#7B2BFF]/30" />
+      <div className="absolute bottom-3 md:bottom-6 left-3 md:left-6 w-10 h-10 md:w-16 md:h-16 border-l-2 border-b-2 border-[#7B2BFF]/30" />
+      <div className="absolute bottom-3 md:bottom-6 right-3 md:right-6 w-10 h-10 md:w-16 md:h-16 border-r-2 border-b-2 border-[#7B2BFF]/30" />
     </section>
   );
 }

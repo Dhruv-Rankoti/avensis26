@@ -162,59 +162,59 @@ export default function RoboRaceSection() {
         </svg>
       </div>
 
-      {/* Title - left */}
+      {/* Title - left on desktop, top on mobile */}
       <div
         ref={titleLeftRef}
-        className="absolute left-[7vw] top-[16%] z-20"
+        className="absolute left-1/2 md:left-[7vw] top-[12%] md:top-[16%] -translate-x-1/2 md:translate-x-0 z-20 text-center md:text-left"
         style={{ opacity: 0 }}
       >
-        <h2 className="font-orbitron font-black text-[clamp(44px,5.8vw,92px)] text-[#F4F6FF] tracking-widest text-glow-violet">
+        <h2 className="font-orbitron font-black text-[clamp(36px,5.8vw,92px)] text-[#F4F6FF] tracking-widest text-glow-violet">
           ROBORACE
         </h2>
       </div>
 
-      {/* Title - right */}
+      {/* Title - right on desktop, below roborace on mobile */}
       <div
         ref={titleRightRef}
-        className="absolute right-[7vw] top-[16%] z-20 text-right"
+        className="absolute left-1/2 md:left-auto right-auto md:right-[7vw] top-[20%] md:top-[16%] -translate-x-1/2 md:translate-x-0 z-20 text-center md:text-right"
         style={{ opacity: 0 }}
       >
-        <h2 className="font-orbitron font-black text-[clamp(44px,5.8vw,92px)] text-[#F4F6FF] tracking-widest text-glow-cyan">
+        <h2 className="font-orbitron font-black text-[clamp(36px,5.8vw,92px)] text-[#F4F6FF] tracking-widest text-glow-cyan">
           TRACK
         </h2>
       </div>
 
       {/* Vehicle image - professional flexbox centering */}
-      <div className="absolute inset-0 mt-10 flex items-center justify-center z-10 pointer-events-none">
+      <div className="absolute inset-0 mt-4 md:mt-10 flex items-center justify-center z-10 pointer-events-none">
         <img
           ref={vehicleRef}
           src="/roborace_vehicle.png"
           alt="RoboRace Vehicle"
-          className="w-[58vw] max-w-215 h-auto object-contain"
+          className="w-[85vw] md:w-[58vw] max-w-215 h-auto object-contain"
           style={{ opacity: 0 }}
         />
       </div>
 
       {/* Race stats overlay */}
-      <div className="absolute left-1/2 top-[30%] -translate-x-1/2 flex gap-8 z-20">
-        <div className="flex items-center gap-2 px-4 py-2 bg-[#0B0E16]/80 border border-[#FFAA2B]/30 rounded-lg backdrop-blur-sm">
-          <Timer size={16} className="text-[#FFAA2B]" />
-          <span className="font-mono text-xs text-[#A7B0C8]">Best: 45.2s</span>
+      <div className="absolute left-1/2 top-[72%] md:top-[30%] -translate-x-1/2 flex flex-wrap justify-center gap-3 md:gap-8 z-20 px-4">
+        <div className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-[#0B0E16]/80 border border-[#FFAA2B]/30 rounded-lg backdrop-blur-sm">
+          <Timer size={14} className="text-[#FFAA2B]" />
+          <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">Best: 45.2s</span>
         </div>
-        <div className="flex items-center gap-2 px-4 py-2 bg-[#0B0E16]/80 border border-[#7B2BFF]/30 rounded-lg backdrop-blur-sm">
-          <Zap size={16} className="text-[#7B2BFF]" />
-          <span className="font-mono text-xs text-[#A7B0C8]">Speed: 120km/h</span>
+        <div className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-[#0B0E16]/80 border border-[#7B2BFF]/30 rounded-lg backdrop-blur-sm">
+          <Zap size={14} className="text-[#7B2BFF]" />
+          <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">Speed: 120km/h</span>
         </div>
-        <div className="flex items-center gap-2 px-4 py-2 bg-[#0B0E16]/80 border border-[#00F0FF]/30 rounded-lg backdrop-blur-sm">
-          <MapPin size={16} className="text-[#00F0FF]" />
-          <span className="font-mono text-xs text-[#A7B0C8]">Track: 2.5km</span>
+        <div className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-[#0B0E16]/80 border border-[#00F0FF]/30 rounded-lg backdrop-blur-sm">
+          <MapPin size={14} className="text-[#00F0FF]" />
+          <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">Track: 2.5km</span>
         </div>
       </div>
 
-      {/* CTA - bottom right */}
+      {/* CTA - bottom center on mobile, bottom right on desktop */}
       <button
         ref={ctaRef}
-        className="absolute right-[7vw] top-[86%] cyber-button border-[#FFAA2B] z-20 group"
+        className="absolute left-1/2 md:left-auto right-auto md:right-[7vw] top-[88%] md:top-[86%] -translate-x-1/2 md:translate-x-0 cyber-button border-[#FFAA2B] z-20 group text-sm md:text-base"
         style={{ opacity: 0 }}
       >
         <span className="relative z-10 flex items-center gap-2">
@@ -223,10 +223,10 @@ export default function RoboRaceSection() {
         </span>
       </button>
 
-      {/* Sector label - bottom left */}
+      {/* Sector label - bottom left, hidden on mobile */}
       <span
         ref={labelRef}
-        className="absolute left-[7vw] top-[86%] font-mono text-xs text-[#A7B0C8]/60 tracking-widest z-20"
+        className="absolute left-[7vw] top-[86%] font-mono text-xs text-[#A7B0C8]/60 tracking-widest z-20 hidden md:block"
         style={{ opacity: 0 }}
       >
         SECTOR 04

@@ -20,6 +20,8 @@ export default function EsportsSection() {
     if (!section) return;
 
     const ctx = gsap.context(() => {
+      const isMobile = window.innerWidth < 768;
+      
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -82,55 +84,57 @@ export default function EsportsSection() {
 
       // SETTLE (30% - 70%): Hold
 
-      // EXIT (70% - 100%)
-      scrollTl.fromTo(
-        titleRef.current,
-        { y: 0, opacity: 1 },
-        { y: '-14vh', opacity: 0, ease: 'power2.in' },
-        0.7
-      );
+      // EXIT (70% - 100%) - Desktop only
+      if (!isMobile) {
+        scrollTl.fromTo(
+          titleRef.current,
+          { y: 0, opacity: 1 },
+          { y: '-14vh', opacity: 0, ease: 'power2.in' },
+          0.7
+        );
 
-      scrollTl.fromTo(
-        leftTagRef.current,
-        { x: 0, opacity: 1 },
-        { x: '-8vw', opacity: 0, ease: 'power2.in' },
-        0.72
-      );
+        scrollTl.fromTo(
+          leftTagRef.current,
+          { x: 0, opacity: 1 },
+          { x: '-8vw', opacity: 0, ease: 'power2.in' },
+          0.72
+        );
 
-      scrollTl.fromTo(
-        rightTagRef.current,
-        { x: 0, opacity: 1 },
-        { x: '8vw', opacity: 0, ease: 'power2.in' },
-        0.72
-      );
+        scrollTl.fromTo(
+          rightTagRef.current,
+          { x: 0, opacity: 1 },
+          { x: '8vw', opacity: 0, ease: 'power2.in' },
+          0.72
+        );
 
-      scrollTl.fromTo(
-        controllerRef.current,
-        { y: 0, scale: 1, opacity: 1 },
-        { y: '26vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
-        0.7
-      );
+        scrollTl.fromTo(
+          controllerRef.current,
+          { y: 0, scale: 1, opacity: 1 },
+          { y: '26vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
+          0.7
+        );
 
-      scrollTl.fromTo(
-        descriptorRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.75
-      );
+        scrollTl.fromTo(
+          descriptorRef.current,
+          { opacity: 1 },
+          { opacity: 0, ease: 'power2.in' },
+          0.75
+        );
 
-      scrollTl.fromTo(
-        ctaRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.78
-      );
+        scrollTl.fromTo(
+          ctaRef.current,
+          { opacity: 1 },
+          { opacity: 0, ease: 'power2.in' },
+          0.78
+        );
 
-      scrollTl.fromTo(
-        hudElementsRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.8
-      );
+        scrollTl.fromTo(
+          hudElementsRef.current,
+          { opacity: 1 },
+          { opacity: 0, ease: 'power2.in' },
+          0.8
+        );
+      }
     }, section);
 
     return () => ctx.revert();
@@ -144,10 +148,10 @@ export default function EsportsSection() {
       {/* HUD Background elements */}
       <div ref={hudElementsRef} className="absolute inset-0" style={{ opacity: 0 }}>
         {/* Corner brackets */}
-        <div className="absolute top-8 left-8 w-20 h-20 border-l-2 border-t-2 border-[#00F0FF]/40" />
-        <div className="absolute top-8 right-8 w-20 h-20 border-r-2 border-t-2 border-[#00F0FF]/40" />
-        <div className="absolute bottom-8 left-8 w-20 h-20 border-l-2 border-b-2 border-[#00F0FF]/40" />
-        <div className="absolute bottom-8 right-8 w-20 h-20 border-r-2 border-b-2 border-[#00F0FF]/40" />
+        <div className="absolute top-4 md:top-8 left-4 md:left-8 w-12 h-12 md:w-20 md:h-20 border-l-2 border-t-2 border-[#00F0FF]/40" />
+        <div className="absolute top-4 md:top-8 right-4 md:right-8 w-12 h-12 md:w-20 md:h-20 border-r-2 border-t-2 border-[#00F0FF]/40" />
+        <div className="absolute bottom-4 md:bottom-8 left-4 md:left-8 w-12 h-12 md:w-20 md:h-20 border-l-2 border-b-2 border-[#00F0FF]/40" />
+        <div className="absolute bottom-4 md:bottom-8 right-4 md:right-8 w-12 h-12 md:w-20 md:h-20 border-r-2 border-b-2 border-[#00F0FF]/40" />
 
         {/* Crosshair center */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4">
@@ -162,11 +166,11 @@ export default function EsportsSection() {
       {/* Left tag */}
       <div
         ref={leftTagRef}
-        className="absolute left-[7vw] top-[12%] z-20 flex items-center gap-2"
+        className="absolute left-[4vw] md:left-[7vw] top-[10%] md:top-[12%] z-20 flex items-center gap-1.5 md:gap-2"
         style={{ opacity: 0 }}
       >
-        <Radio size={14} className="text-[#FF2BD6] animate-pulse" />
-        <span className="font-mono text-xs text-[#FF2BD6] tracking-widest">
+        <Radio size={12} className="text-[#FF2BD6] animate-pulse md:w-4 md:h-4" />
+        <span className="font-mono text-[9px] md:text-xs text-[#FF2BD6] tracking-widest">
           LIVE LOBBY
         </span>
       </div>
@@ -174,19 +178,19 @@ export default function EsportsSection() {
       {/* Right tag */}
       <div
         ref={rightTagRef}
-        className="absolute right-[7vw] top-[12%] z-20 flex items-center gap-2"
+        className="absolute right-[4vw] md:right-[7vw] top-[10%] md:top-[12%] z-20 flex items-center gap-1.5 md:gap-2"
         style={{ opacity: 0 }}
       >
-        <span className="font-mono text-xs text-[#00F0FF] tracking-widest">
+        <span className="font-mono text-[9px] md:text-xs text-[#00F0FF] tracking-widest">
           BGMI • VALORANT
         </span>
-        <Gamepad2 size={14} className="text-[#00F0FF]" />
+        <Gamepad2 size={12} className="text-[#00F0FF] md:w-4 md:h-4" />
       </div>
 
       {/* Title - center top */}
       <h2
         ref={titleRef}
-        className="absolute left-1/2 top-[12%] -translate-x-1/2 font-orbitron font-black text-[clamp(40px,5.2vw,84px)] text-[#F4F6FF] tracking-[0.12em] text-glow-cyan z-20 whitespace-nowrap"
+        className="absolute left-1/2 top-[16%] md:top-[12%] -translate-x-1/2 font-orbitron font-black text-[clamp(32px,5.2vw,84px)] text-[#F4F6FF] tracking-[0.08em] md:tracking-[0.12em] text-glow-cyan z-20 whitespace-nowrap"
         style={{ opacity: 0 }}
       >
         ESPORTS ZONE
@@ -198,7 +202,7 @@ export default function EsportsSection() {
           ref={controllerRef}
           src="/esports_controller.png"
           alt="Gaming Controller"
-          className="w-[52vw] max-w-195 h-auto object-contain"
+          className="w-[80vw] md:w-[52vw] max-w-195 h-auto object-contain"
           style={{ opacity: 0, perspective: '1000px' }}
         />
       </div>
@@ -206,36 +210,36 @@ export default function EsportsSection() {
       {/* Descriptor - bottom center */}
       <div
         ref={descriptorRef}
-        className="absolute left-1/2 top-[78%] -translate-x-1/2 max-w-[46vw] text-center z-20"
+        className="absolute left-1/2 top-[74%] md:top-[78%] -translate-x-1/2 max-w-[88vw] md:max-w-[46vw] text-center z-20 px-4 md:px-0"
         style={{ opacity: 0 }}
       >
-        <p className="font-inter text-[clamp(14px,1.2vw,18px)] text-[#A7B0C8] leading-relaxed">
+        <p className="font-inter text-[clamp(12px,1.2vw,18px)] text-[#A7B0C8] leading-relaxed">
           Squad up. Clutch plays. Tournament brackets and live streams.
-          <br />
+          <br className="hidden md:block" />
           The arena awaits champions.
         </p>
 
         {/* Stats */}
-        <div className="flex justify-center gap-8 mt-6">
-          <div className="flex items-center gap-2">
-            <Users size={16} className="text-[#7B2BFF]" />
-            <span className="font-mono text-xs text-[#A7B0C8]">128 Teams</span>
+        <div className="flex flex-wrap justify-center gap-4 md:gap-8 mt-4 md:mt-6">
+          <div className="flex items-center gap-1.5 md:gap-2">
+            <Users size={14} className="text-[#7B2BFF]" />
+            <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">128 Teams</span>
           </div>
-          <div className="flex items-center gap-2">
-            <Trophy size={16} className="text-[#FFAA2B]" />
-            <span className="font-mono text-xs text-[#A7B0C8]">₹1L+ Prizes</span>
+          <div className="flex items-center gap-1.5 md:gap-2">
+            <Trophy size={14} className="text-[#FFAA2B]" />
+            <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">₹1L+ Prizes</span>
           </div>
-          <div className="flex items-center gap-2">
-            <Radio size={16} className="text-[#FF2BD6]" />
-            <span className="font-mono text-xs text-[#A7B0C8]">Live Stream</span>
+          <div className="flex items-center gap-1.5 md:gap-2">
+            <Radio size={14} className="text-[#FF2BD6]" />
+            <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">Live Stream</span>
           </div>
         </div>
       </div>
 
-      {/* CTA - bottom right */}
+      {/* CTA - bottom center on mobile, bottom right on desktop */}
       <button
         ref={ctaRef}
-        className="absolute right-[7vw] top-[86%] cyber-button border-[#00F0FF] z-20 group"
+        className="absolute left-1/2 md:left-auto right-auto md:right-[7vw] top-[90%] md:top-[86%] -translate-x-1/2 md:translate-x-0 cyber-button border-[#00F0FF] z-20 group text-sm md:text-base"
         style={{ opacity: 0 }}
       >
         <span className="relative z-10 flex items-center gap-2">

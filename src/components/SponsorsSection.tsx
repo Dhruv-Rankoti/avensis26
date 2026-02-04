@@ -111,49 +111,49 @@ export default function SponsorsSection() {
     <section
       ref={sectionRef}
       id="sponsors"
-      className="relative w-full bg-[#05060B] py-20 lg:py-32"
+      className="relative w-full bg-[#05060B] py-12 md:py-20 lg:py-32"
     >
-      <div className="w-full px-6 lg:px-12">
+      <div className="w-full px-4 md:px-6 lg:px-12">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <h2
             ref={titleRef}
-            className="font-orbitron font-black text-[clamp(36px,4vw,64px)] text-[#F4F6FF] tracking-widest text-glow-violet mb-4"
+            className="font-orbitron font-black text-[clamp(32px,4vw,64px)] text-[#F4F6FF] tracking-widest text-glow-violet mb-2 md:mb-4"
           >
             SPONSORS
           </h2>
-          <p className="font-inter text-[#A7B0C8] text-lg">
+          <p className="font-inter text-[#A7B0C8] text-base md:text-lg">
             Powered by industry leaders
           </p>
         </div>
 
         {/* Sponsor tiers */}
-        <div ref={tiersRef} className="space-y-16">
+        <div ref={tiersRef} className="space-y-12 md:space-y-16">
           {sponsorTiers.map((tier) => {
             const Icon = tier.icon;
             return (
               <div key={tier.name} className="sponsor-tier">
                 {/* Tier header */}
-                <div className="tier-header flex items-center justify-center gap-3 mb-8">
-                  <Icon size={20} style={{ color: tier.color }} />
+                <div className="tier-header flex items-center justify-center gap-2 md:gap-3 mb-6 md:mb-8">
+                  <Icon size={18} style={{ color: tier.color }} className="md:w-5 md:h-5" />
                   <span
-                    className="font-mono text-sm tracking-[0.2em] uppercase"
+                    className="font-mono text-xs md:text-sm tracking-[0.15em] md:tracking-[0.2em] uppercase"
                     style={{ color: tier.color }}
                   >
                     {tier.name}
                   </span>
                   <div
-                    className="w-16 h-px"
+                    className="w-12 md:w-16 h-px"
                     style={{ background: `linear-gradient(90deg, transparent, ${tier.color}, transparent)` }}
                   />
                 </div>
 
                 {/* Sponsor logos */}
-                <div className="flex flex-wrap justify-center gap-6">
+                <div className="flex flex-wrap justify-center gap-4 md:gap-6">
                   {tier.sponsors.map((sponsor) => (
                     <div
                       key={sponsor.name}
-                      className="sponsor-logo group relative w-32 h-32 lg:w-40 lg:h-40 bg-[#0B0E16] border border-white/10 rounded-xl flex items-center justify-center cursor-pointer transition-all duration-300 hover:border-[#7B2BFF]/50 hover:-translate-y-1"
+                      className="sponsor-logo group relative w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 bg-[#0B0E16] border border-white/10 rounded-xl flex items-center justify-center cursor-pointer transition-all duration-300 hover:border-[#7B2BFF]/50 hover:-translate-y-1"
                     >
                       {/* Glow effect */}
                       <div
@@ -166,12 +166,12 @@ export default function SponsorsSection() {
                       {/* Logo content */}
                       <div className="relative z-10 text-center">
                         <span
-                          className="font-orbitron font-bold text-2xl lg:text-3xl"
+                          className="font-orbitron font-bold text-xl md:text-2xl lg:text-3xl"
                           style={{ color: tier.color }}
                         >
                           {sponsor.logo}
                         </span>
-                        <p className="font-mono text-xs text-[#A7B0C8] mt-2">
+                        <p className="font-mono text-[10px] md:text-xs text-[#A7B0C8] mt-1 md:mt-2">
                           {sponsor.name}
                         </p>
                       </div>
@@ -184,11 +184,11 @@ export default function SponsorsSection() {
         </div>
 
         {/* Become a sponsor CTA */}
-        <div className="mt-20 text-center">
-          <p className="font-inter text-[#A7B0C8] mb-6">
+        <div className="mt-16 md:mt-20 text-center">
+          <p className="font-inter text-[#A7B0C8] mb-4 md:mb-6 text-sm md:text-base">
             Want to sponsor AVENSIS'26?
           </p>
-          <button className="cyber-button">
+          <button className="cyber-button text-sm md:text-base">
             <span className="relative z-10">Become a Sponsor</span>
           </button>
         </div>

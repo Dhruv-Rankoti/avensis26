@@ -210,28 +210,28 @@ export default function EventsSection() {
     <section
       ref={sectionRef}
       id="events"
-      className="relative w-full bg-[#05060B] py-20 lg:py-32 circuit-bg"
+      className="relative w-full bg-[#05060B] py-12 md:py-20 lg:py-32 circuit-bg"
     >
-      <div className="w-full px-6 lg:px-12">
+      <div className="w-full px-4 md:px-6 lg:px-12">
         {/* Header */}
-        <div ref={headerRef} className="mb-10">
-          <h2 className="font-orbitron font-black text-[clamp(36px,4vw,64px)] text-[#F4F6FF] tracking-widest text-glow-violet mb-4">
+        <div ref={headerRef} className="mb-6 md:mb-10">
+          <h2 className="font-orbitron font-black text-[clamp(32px,4vw,64px)] text-[#F4F6FF] tracking-widest text-glow-violet mb-2 md:mb-4">
             EVENTS
           </h2>
-          <p className="font-inter text-[#A7B0C8] text-lg">
+          <p className="font-inter text-[#A7B0C8] text-base md:text-lg">
             Pick your battlefield.
           </p>
         </div>
 
         {/* Category filters */}
-        <div ref={filtersRef} className="flex flex-wrap gap-3 mb-12">
+        <div ref={filtersRef} className="flex flex-wrap gap-2 md:gap-3 mb-8 md:mb-12">
           {categories.map((cat) => {
             const Icon = cat.icon;
             return (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-mono text-sm tracking-wider transition-all duration-300 cursor-pointer ${
+                className={`flex items-center gap-1.5 md:gap-2 px-3 md:px-5 py-2 md:py-2.5 rounded-full font-mono text-xs md:text-sm tracking-wider transition-all duration-300 cursor-pointer ${
                   activeCategory === cat.id
                     ? 'bg-[#7B2BFF] text-white border-glow'
                     : 'bg-[#0B0E16] text-[#A7B0C8] border border-white/10 hover:border-[#7B2BFF]/50'
@@ -247,7 +247,7 @@ export default function EventsSection() {
         {/* Events grid */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
         >
           {filteredEvents.map((event) => (
             <div
@@ -264,11 +264,11 @@ export default function EventsSection() {
                 <div className="absolute inset-0 bg-linear-to-t from-[#05060B] via-transparent to-transparent" />
                 
                 {/* Tags */}
-                <div className="absolute bottom-3 left-3 flex gap-2">
+                <div className="absolute bottom-2 md:bottom-3 left-2 md:left-3 flex gap-1.5 md:gap-2">
                   {event.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="px-2 py-1 bg-[#0B0E16]/90 backdrop-blur-sm rounded text-[10px] font-mono text-[#A7B0C8]"
+                      className="px-1.5 md:px-2 py-0.5 md:py-1 bg-[#0B0E16]/90 backdrop-blur-sm rounded text-[9px] md:text-[10px] font-mono text-[#A7B0C8]"
                     >
                       {tag}
                     </span>
@@ -277,11 +277,11 @@ export default function EventsSection() {
               </div>
 
               {/* Content */}
-              <div className="p-5">
-                <h3 className="font-orbitron font-bold text-lg text-[#F4F6FF] mb-2 group-hover:text-[#7B2BFF] transition-colors">
+              <div className="p-4 md:p-5">
+                <h3 className="font-orbitron font-bold text-base md:text-lg text-[#F4F6FF] mb-2 group-hover:text-[#7B2BFF] transition-colors">
                   {event.title}
                 </h3>
-                <p className="font-inter text-sm text-[#A7B0C8] leading-relaxed mb-4 line-clamp-2">
+                <p className="font-inter text-xs md:text-sm text-[#A7B0C8] leading-relaxed mb-4 line-clamp-2">
                   {event.description}
                 </p>
               </div>

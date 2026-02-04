@@ -38,6 +38,8 @@ export default function CulturalSection() {
     if (!section) return;
 
     const ctx = gsap.context(() => {
+      const isMobile = window.innerWidth < 768;
+      
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -86,41 +88,43 @@ export default function CulturalSection() {
 
       // SETTLE (30% - 70%): Hold
 
-      // EXIT (70% - 100%)
-      scrollTl.fromTo(
-        titleRef.current,
-        { y: 0, opacity: 1 },
-        { y: '-12vh', opacity: 0, ease: 'power2.in' },
-        0.7
-      );
+      // EXIT (70% - 100%) - Desktop only
+      if (!isMobile) {
+        scrollTl.fromTo(
+          titleRef.current,
+          { y: 0, opacity: 1 },
+          { y: '-12vh', opacity: 0, ease: 'power2.in' },
+          0.7
+        );
 
-      scrollTl.fromTo(
-        stageRef.current,
-        { y: 0, scale: 1, opacity: 1 },
-        { y: '24vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
-        0.7
-      );
+        scrollTl.fromTo(
+          stageRef.current,
+          { y: 0, scale: 1, opacity: 1 },
+          { y: '24vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
+          0.7
+        );
 
-      scrollTl.fromTo(
-        descriptorRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.75
-      );
+        scrollTl.fromTo(
+          descriptorRef.current,
+          { opacity: 1 },
+          { opacity: 0, ease: 'power2.in' },
+          0.75
+        );
 
-      scrollTl.fromTo(
-        ctaRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.78
-      );
+        scrollTl.fromTo(
+          ctaRef.current,
+          { opacity: 1 },
+          { opacity: 0, ease: 'power2.in' },
+          0.78
+        );
 
-      scrollTl.fromTo(
-        particlesRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.8
-      );
+        scrollTl.fromTo(
+          particlesRef.current,
+          { opacity: 1 },
+          { opacity: 0, ease: 'power2.in' },
+          0.8
+        );
+      }
     }, section);
 
     return () => ctx.revert();
@@ -150,7 +154,7 @@ export default function CulturalSection() {
       {/* Title - top center */}
       <h2
         ref={titleRef}
-        className="absolute left-1/2 top-[14%] -translate-x-1/2 font-orbitron font-black text-[clamp(40px,5vw,80px)] text-[#F4F6FF] tracking-[0.12em] text-glow-magenta z-20 whitespace-nowrap"
+        className="absolute left-1/2 top-[12%] md:top-[14%] -translate-x-1/2 font-orbitron font-black text-[clamp(28px,5vw,80px)] text-[#F4F6FF] tracking-[0.08em] md:tracking-[0.12em] text-glow-magenta z-20 whitespace-nowrap px-4"
         style={{ opacity: 0 }}
       >
         CULTURAL & FUN
@@ -162,7 +166,7 @@ export default function CulturalSection() {
           ref={stageRef}
           src="/cultural_stage.png"
           alt="Cultural Stage"
-          className="w-[56vw] max-w-210 h-auto object-contain rounded-xl overflow-hidden"
+          className="w-[85vw] md:w-[56vw] max-w-210 h-auto object-contain rounded-xl overflow-hidden"
           style={{ opacity: 0, perspective: '1000px' }}
         />
       </div>
@@ -170,36 +174,36 @@ export default function CulturalSection() {
       {/* Descriptor - bottom center */}
       <div
         ref={descriptorRef}
-        className="absolute left-1/2 top-[82%] -translate-x-1/2 max-w-[44vw] text-center z-20"
+        className="absolute left-1/2 top-[80%] md:top-[82%] -translate-x-1/2 max-w-[90vw] md:max-w-[44vw] text-center z-20 px-4 md:px-0"
         style={{ opacity: 0 }}
       >
-        <p className="font-inter text-[clamp(14px,1.2vw,18px)] text-[#A7B0C8] leading-relaxed">
+        <p className="font-inter text-[clamp(12px,1.2vw,18px)] text-[#A7B0C8] leading-relaxed">
           Music. Dance. Drama. Open mic nights.
           <br />
           Unleash your creativity under the neon lights.
         </p>
 
         {/* Event categories */}
-        <div className="flex justify-center gap-4 mt-6">
-          <div className="flex items-center gap-2 px-4 py-2 bg-[#0B0E16]/80 border border-[#FF2BD6]/30 rounded-lg backdrop-blur-sm">
-            <Music size={16} className="text-[#FF2BD6]" />
-            <span className="font-mono text-xs text-[#A7B0C8]">Music</span>
+        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mt-4 md:mt-6">
+          <div className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-[#0B0E16]/80 border border-[#FF2BD6]/30 rounded-lg backdrop-blur-sm">
+            <Music size={14} className="text-[#FF2BD6]" />
+            <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">Music</span>
           </div>
-          <div className="flex items-center gap-2 px-4 py-2 bg-[#0B0E16]/80 border border-[#7B2BFF]/30 rounded-lg backdrop-blur-sm">
-            <Drama size={16} className="text-[#7B2BFF]" />
-            <span className="font-mono text-xs text-[#A7B0C8]">Dance</span>
+          <div className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-[#0B0E16]/80 border border-[#7B2BFF]/30 rounded-lg backdrop-blur-sm">
+            <Drama size={14} className="text-[#7B2BFF]" />
+            <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">Dance</span>
           </div>
-          <div className="flex items-center gap-2 px-4 py-2 bg-[#0B0E16]/80 border border-[#00F0FF]/30 rounded-lg backdrop-blur-sm">
-            <Mic size={16} className="text-[#00F0FF]" />
-            <span className="font-mono text-xs text-[#A7B0C8]">Open Mic</span>
+          <div className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-[#0B0E16]/80 border border-[#00F0FF]/30 rounded-lg backdrop-blur-sm">
+            <Mic size={14} className="text-[#00F0FF]" />
+            <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">Open Mic</span>
           </div>
         </div>
       </div>
 
-      {/* CTA - bottom right */}
+      {/* CTA - bottom center on mobile, bottom right on desktop */}
       <button
         ref={ctaRef}
-        className="absolute right-[7vw] top-[86%] cyber-button border-[#FF2BD6] z-20 group"
+        className="absolute left-1/2 md:left-auto right-auto md:right-[7vw] top-[92%] md:top-[86%] -translate-x-1/2 md:translate-x-0 cyber-button border-[#FF2BD6] z-20 group text-sm md:text-base"
         style={{ opacity: 0 }}
       >
         <span className="relative z-10 flex items-center gap-2">
@@ -209,9 +213,9 @@ export default function CulturalSection() {
       </button>
 
       {/* Decorative stage lights */}
-      <div className="absolute top-0 left-1/4 w-px h-40 bg-linear-to-b from-[#FF2BD6]/50 to-transparent" />
-      <div className="absolute top-0 right-1/4 w-px h-40 bg-linear-to-b from-[#7B2BFF]/50 to-transparent" />
-      <div className="absolute top-0 left-1/2 w-px h-32 bg-linear-to-b from-[#00F0FF]/30 to-transparent" />
+      <div className="absolute top-0 left-1/4 w-px h-24 md:h-40 bg-linear-to-b from-[#FF2BD6]/50 to-transparent" />
+      <div className="absolute top-0 right-1/4 w-px h-24 md:h-40 bg-linear-to-b from-[#7B2BFF]/50 to-transparent" />
+      <div className="absolute top-0 left-1/2 w-px h-20 md:h-32 bg-linear-to-b from-[#00F0FF]/30 to-transparent" />
 
       <style>{`
         @keyframes float-particle {
