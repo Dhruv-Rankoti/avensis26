@@ -18,9 +18,27 @@ export default function TechArenaSection() {
     const section = sectionRef.current;
     if (!section) return;
 
+    const isMobile = window.innerWidth < 768;
+
+    // On mobile: no animations, just show content and pin
+    if (isMobile) {
+      // Make all elements visible immediately
+      gsap.set([titleTechRef.current, titleArenaRef.current, droneRef.current, descriptorRef.current, ctaRef.current, labelRef.current], {
+        opacity: 1, x: 0, y: 0, scale: 1, rotate: 0
+      });
+
+      // Just pin without scroll animation
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top top',
+        end: '+=100%',
+        pin: true,
+      });
+      return;
+    }
+
+    // Desktop: Full animations
     const ctx = gsap.context(() => {
-      const isMobile = window.innerWidth < 768;
-      
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -76,50 +94,48 @@ export default function TechArenaSection() {
 
       // SETTLE (30% - 70%): Hold positions
 
-      // EXIT (70% - 100%) - Desktop only
-      if (!isMobile) {
-        scrollTl.fromTo(
-          titleTechRef.current,
-          { x: 0, opacity: 1 },
-          { x: '-22vw', opacity: 0, ease: 'power2.in' },
-          0.7
-        );
+      // EXIT (70% - 100%)
+      scrollTl.fromTo(
+        titleTechRef.current,
+        { x: 0, opacity: 1 },
+        { x: '-22vw', opacity: 0, ease: 'power2.in' },
+        0.7
+      );
 
-        scrollTl.fromTo(
-          titleArenaRef.current,
-          { x: 0, opacity: 1 },
-          { x: '-22vw', opacity: 0, ease: 'power2.in' },
-          0.72
-        );
+      scrollTl.fromTo(
+        titleArenaRef.current,
+        { x: 0, opacity: 1 },
+        { x: '-22vw', opacity: 0, ease: 'power2.in' },
+        0.72
+      );
 
-        scrollTl.fromTo(
-          droneRef.current,
-          { y: '6vh', scale: 1, opacity: 1 },
-          { y: '28vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
-          0.7
-        );
+      scrollTl.fromTo(
+        droneRef.current,
+        { y: '6vh', scale: 1, opacity: 1 },
+        { y: '28vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
+        0.7
+      );
 
-        scrollTl.fromTo(
-          descriptorRef.current,
-          { x: 0, opacity: 1 },
-          { x: '10vw', opacity: 0, ease: 'power2.in' },
-          0.75
-        );
+      scrollTl.fromTo(
+        descriptorRef.current,
+        { x: 0, opacity: 1 },
+        { x: '10vw', opacity: 0, ease: 'power2.in' },
+        0.75
+      );
 
-        scrollTl.fromTo(
-          ctaRef.current,
-          { x: 0, opacity: 1 },
-          { x: '10vw', opacity: 0, ease: 'power2.in' },
-          0.78
-        );
+      scrollTl.fromTo(
+        ctaRef.current,
+        { x: 0, opacity: 1 },
+        { x: '10vw', opacity: 0, ease: 'power2.in' },
+        0.78
+      );
 
-        scrollTl.fromTo(
-          labelRef.current,
-          { opacity: 1 },
-          { opacity: 0, ease: 'power2.in' },
-          0.8
-        );
-      }
+      scrollTl.fromTo(
+        labelRef.current,
+        { opacity: 1 },
+        { opacity: 0, ease: 'power2.in' },
+        0.8
+      );
     }, section);
 
     return () => ctx.revert();

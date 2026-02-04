@@ -25,6 +25,12 @@ export default function Home() {
 
       // Wait for all sections to mount before setting up global snap
       const timer = setTimeout(() => {
+        const isMobile = window.innerWidth < 768;
+        
+        // Skip scroll snap on mobile - natural scroll
+        if (isMobile) return;
+
+        // Desktop only: Apply scroll snap
         const pinned = ScrollTrigger.getAll()
           .filter((st: any) => st.vars.pin)
           .sort((a: any, b: any) => a.start - b.start);

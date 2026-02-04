@@ -37,9 +37,27 @@ export default function CulturalSection() {
     const section = sectionRef.current;
     if (!section) return;
 
+    const isMobile = window.innerWidth < 768;
+
+    // On mobile: no animations, just show content and pin
+    if (isMobile) {
+      // Make all elements visible immediately
+      gsap.set([titleRef.current, stageRef.current, descriptorRef.current, ctaRef.current, particlesRef.current], {
+        opacity: 1, x: 0, y: 0, scale: 1, rotateX: 0
+      });
+
+      // Just pin without scroll animation
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top top',
+        end: '+=100%',
+        pin: true,
+      });
+      return;
+    }
+
+    // Desktop: Full animations
     const ctx = gsap.context(() => {
-      const isMobile = window.innerWidth < 768;
-      
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -88,43 +106,41 @@ export default function CulturalSection() {
 
       // SETTLE (30% - 70%): Hold
 
-      // EXIT (70% - 100%) - Desktop only
-      if (!isMobile) {
-        scrollTl.fromTo(
-          titleRef.current,
-          { y: 0, opacity: 1 },
-          { y: '-12vh', opacity: 0, ease: 'power2.in' },
-          0.7
-        );
+      // EXIT (70% - 100%)
+      scrollTl.fromTo(
+        titleRef.current,
+        { y: 0, opacity: 1 },
+        { y: '-12vh', opacity: 0, ease: 'power2.in' },
+        0.7
+      );
 
-        scrollTl.fromTo(
-          stageRef.current,
-          { y: 0, scale: 1, opacity: 1 },
-          { y: '24vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
-          0.7
-        );
+      scrollTl.fromTo(
+        stageRef.current,
+        { y: 0, scale: 1, opacity: 1 },
+        { y: '24vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
+        0.7
+      );
 
-        scrollTl.fromTo(
-          descriptorRef.current,
-          { opacity: 1 },
-          { opacity: 0, ease: 'power2.in' },
-          0.75
-        );
+      scrollTl.fromTo(
+        descriptorRef.current,
+        { opacity: 1 },
+        { opacity: 0, ease: 'power2.in' },
+        0.75
+      );
 
-        scrollTl.fromTo(
-          ctaRef.current,
-          { opacity: 1 },
-          { opacity: 0, ease: 'power2.in' },
-          0.78
-        );
+      scrollTl.fromTo(
+        ctaRef.current,
+        { opacity: 1 },
+        { opacity: 0, ease: 'power2.in' },
+        0.78
+      );
 
-        scrollTl.fromTo(
-          particlesRef.current,
-          { opacity: 1 },
-          { opacity: 0, ease: 'power2.in' },
-          0.8
-        );
-      }
+      scrollTl.fromTo(
+        particlesRef.current,
+        { opacity: 1 },
+        { opacity: 0, ease: 'power2.in' },
+        0.8
+      );
     }, section);
 
     return () => ctx.revert();

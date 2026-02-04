@@ -107,7 +107,7 @@ export default function FooterSection() {
           <button className="cyber-button pulse-glow text-base md:text-lg px-8 md:px-10 py-3 md:py-4 w-full sm:w-auto">
             <span className="relative z-10 flex items-center justify-center gap-2">
               Register Now
-              <ArrowUpRight size={16} className="md:w-[18px] md:h-[18px]" />
+              <ArrowUpRight size={16} className="md:w-4.5 md:h-4.5" />
             </span>
           </button>
           <button className="flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 border border-white/20 rounded-lg font-mono text-xs md:text-sm text-[#A7B0C8] hover:border-[#7B2BFF]/50 hover:text-[#F4F6FF] transition-all w-full sm:w-auto">
@@ -144,7 +144,7 @@ export default function FooterSection() {
                       className="w-9 h-9 md:w-10 md:h-10 bg-[#0B0E16] border border-white/10 rounded-lg flex items-center justify-center text-[#A7B0C8] hover:border-[#7B2BFF]/50 hover:text-[#7B2BFF] transition-all"
                       aria-label={social.label}
                     >
-                      <Icon size={16} className="md:w-[18px] md:h-[18px]" />
+                      <Icon size={16} className="md:w-4.5 md:h-4.5" />
                     </a>
                   );
                 })}
