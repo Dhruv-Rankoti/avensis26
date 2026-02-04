@@ -7,7 +7,7 @@ import TechArenaSection from '@/src/components/TechArenaSection';
 import EsportsSection from '@/src/components/EsportsSection';
 import RoboRaceSection from '@/src/components/RoboRaceSection';
 import CulturalSection from '@/src/components/CulturalSection';
-import ValentineSection from '@/src/components/ValentineSection';
+import ConfessionSection from '@/src/components/ConfessionSection';
 import EventsSection from '@/src/components/EventsSection';
 import ScheduleSection from '@/src/components/ScheduleSection';
 import SponsorsSection from '@/src/components/SponsorsSection';
@@ -111,7 +111,7 @@ export default function Home() {
           <CulturalSection />
         </div>        
         <div className="relative z-60">
-          <ValentineSection />
+          <ConfessionSection />
         </div>
         
         {/* Flowing sections */}

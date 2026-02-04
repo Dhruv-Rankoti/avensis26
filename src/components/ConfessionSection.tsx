@@ -5,7 +5,7 @@ import { Heart, Calendar, Gift, Music } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ValentineSection() {
+export default function ConfessionSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const taglineRef = useRef<HTMLParagraphElement>(null);
@@ -200,7 +200,7 @@ export default function ValentineSection() {
         className="absolute left-1/2 top-[12%] md:top-[14%] -translate-x-1/2 font-orbitron font-black text-[clamp(28px,5vw,80px)] text-[#F4F6FF] tracking-[0.08em] md:tracking-[0.12em] text-glow-magenta z-20 whitespace-nowrap px-4"
         style={{ opacity: 0 }}
       >
-        VALENTINE WEEK
+        Fest Confession
       </h2>
 
       {/* Tagline */}
@@ -238,18 +238,6 @@ export default function ValentineSection() {
           <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">Live Music</span>
         </div>
       </div>
-
-      {/* CTA - bottom center on mobile, bottom right on desktop */}
-      <button
-        ref={ctaRef}
-        className="absolute left-1/2 md:left-auto right-auto md:right-[7vw] top-[92%] md:top-[86%] -translate-x-1/2 md:translate-x-0 cyber-button border-[#FF2BD6] z-20 group pulse-glow text-sm md:text-base"
-        style={{ opacity: 0 }}
-      >
-        <span className="relative z-10 flex items-center gap-2">
-          <Heart size={16} className="animate-pulse" />
-          Explore the Week
-        </span>
-      </button>
 
       {/* Floating hearts */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

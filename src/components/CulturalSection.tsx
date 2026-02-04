@@ -208,18 +208,6 @@ export default function CulturalSection() {
         </div>
       </div>
 
-      {/* CTA - bottom center on mobile, bottom right on desktop */}
-      <button
-        ref={ctaRef}
-        className="absolute left-1/2 md:left-auto right-auto md:right-[7vw] top-[92%] md:top-[86%] -translate-x-1/2 md:translate-x-0 cyber-button border-[#FF2BD6] z-20 group text-sm md:text-base"
-        style={{ opacity: 0 }}
-      >
-        <span className="relative z-10 flex items-center gap-2">
-          <Sparkles size={16} />
-          See Cultural Events
-        </span>
-      </button>
-
       {/* Decorative stage lights */}
       <div className="absolute top-0 left-1/4 w-px h-24 md:h-40 bg-linear-to-b from-[#FF2BD6]/50 to-transparent" />
       <div className="absolute top-0 right-1/4 w-px h-24 md:h-40 bg-linear-to-b from-[#7B2BFF]/50 to-transparent" />
