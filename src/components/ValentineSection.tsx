@@ -41,19 +41,11 @@ export default function ValentineSection() {
 
     const isMobile = window.innerWidth < 768;
 
-    // On mobile: no animations, just show content and pin
+    // On mobile: no animations, no pinning - just show content
     if (isMobile) {
       // Make all elements visible immediately
       gsap.set([titleRef.current, taglineRef.current, heartRef.current, circuitRef.current, ctaRef.current], {
         opacity: 1, x: 0, y: 0, scale: 1
-      });
-
-      // Just pin without scroll animation
-      ScrollTrigger.create({
-        trigger: section,
-        start: 'top top',
-        end: '+=100%',
-        pin: true,
       });
       return;
     }

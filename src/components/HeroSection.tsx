@@ -74,11 +74,17 @@ export default function HeroSection() {
     return () => ctx.revert();
   }, []);
 
-  // Scroll-driven exit animation
+  // Scroll-driven exit animation - Desktop only
   useLayoutEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
+    const isMobile = window.innerWidth < 768;
+    
+    // On mobile: no scroll animations, no pinning
+    if (isMobile) return;
+
+    // Desktop: Full scroll-driven animations
     const ctx = gsap.context(() => {
       const scrollTl = gsap.timeline({
         scrollTrigger: {

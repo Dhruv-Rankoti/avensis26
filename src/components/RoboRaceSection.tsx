@@ -18,6 +18,18 @@ export default function RoboRaceSection() {
     const section = sectionRef.current;
     if (!section) return;
 
+    const isMobile = window.innerWidth < 768;
+
+    // On mobile: no animations, no pinning - just show content
+    if (isMobile) {
+      // Make all elements visible immediately
+      gsap.set([titleLeftRef.current, titleRightRef.current, vehicleRef.current, trackRef.current, ctaRef.current, labelRef.current], {
+        opacity: 1, x: 0, y: 0, scale: 1, rotate: 0
+      });
+      return;
+    }
+
+    // Desktop: Full animations
     const ctx = gsap.context(() => {
       const scrollTl = gsap.timeline({
         scrollTrigger: {
