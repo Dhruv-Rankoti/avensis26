@@ -31,102 +31,105 @@ export default function TechArenaSection() {
 
     // Desktop: Full animations
     const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=130%',
-          pin: true,
-          scrub: 0.6,
-        },
-      });
-
-      // ENTRANCE (0% - 30%)
-      scrollTl.fromTo(
+      gsap.fromTo(
         titleTechRef.current,
-        { x: '-55vw', opacity: 0 },
-        { x: 0, opacity: 1, ease: 'none' },
-        0
+        { x: 40, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         titleArenaRef.current,
-        { x: '-55vw', opacity: 0 },
-        { x: 0, opacity: 1, ease: 'none' },
-        0.05
+        { x: 40, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         droneRef.current,
-        { y: '76vh', scale: 0.85, rotate: -6, opacity: 0 },
-        { y: '24vh', scale: 1, rotate: 0, opacity: 1, ease: 'none' },
-        0
+        { y: 50, scale: 0.9, opacity: 0 },
+        {
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          duration: 1,
+          ease: 'back.out(1.2)',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         descriptorRef.current,
-        { x: '18vw', opacity: 0 },
-        { x: 0, opacity: 1, ease: 'none' },
-        0.1
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.15,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         ctaRef.current,
-        { x: '18vw', opacity: 0 },
-        { x: 0, opacity: 1, ease: 'none' },
-        0.15
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.2,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         labelRef.current,
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0.2
-      );
-
-      // SETTLE (30% - 70%): Hold positions
-
-      // EXIT (70% - 100%)
-      scrollTl.fromTo(
-        titleTechRef.current,
-        { x: 0, opacity: 1 },
-        { x: '-22vw', opacity: 0, ease: 'power2.in' },
-        0.7
-      );
-
-      scrollTl.fromTo(
-        titleArenaRef.current,
-        { x: 0, opacity: 1 },
-        { x: '-22vw', opacity: 0, ease: 'power2.in' },
-        0.72
-      );
-
-      scrollTl.fromTo(
-        droneRef.current,
-        { y: '6vh', scale: 1, opacity: 1 },
-        { y: '28vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
-        0.7
-      );
-
-      scrollTl.fromTo(
-        descriptorRef.current,
-        { x: 0, opacity: 1 },
-        { x: '10vw', opacity: 0, ease: 'power2.in' },
-        0.75
-      );
-
-      scrollTl.fromTo(
-        ctaRef.current,
-        { x: 0, opacity: 1 },
-        { x: '10vw', opacity: 0, ease: 'power2.in' },
-        0.78
-      );
-
-      scrollTl.fromTo(
-        labelRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.8
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.25,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
     }, section);
 

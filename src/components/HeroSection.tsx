@@ -86,69 +86,113 @@ export default function HeroSection() {
 
     // Desktop: Full scroll-driven animations
     const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=130%',
-          pin: true,
-          scrub: 0.6,
-          onLeaveBack: () => {
-            // Reset all elements to visible when scrolling back to top
-            gsap.set([robotRef.current, titleRef.current, taglineRef.current, microcopyRef.current, ctaRef.current], {
-              opacity: 1,
-              x: 0,
-              y: 0,
-              scale: 1,
-            });
-          },
-        },
-      });
-
-      // ENTRANCE (0% - 30%): Hold - elements already visible from load animation
-      // SETTLE (30% - 70%): Hold
-
-      // EXIT (70% - 100%)
-      scrollTl.fromTo(
+      // Title exit animation on scroll down
+      gsap.fromTo(
         titleRef.current,
-        { y: 0, opacity: 1 },
-        { y: '-18vh', opacity: 0, ease: 'power2.in' },
-        0.7
+        { opacity: 1, y: 0 },
+        {
+          opacity: 0,
+          y: -40,
+          duration: 1.2,
+          ease: 'power2.inOut',
+          scrollTrigger: {
+            trigger: section,
+            start: 'bottom center',
+            end: 'bottom top',
+            scrub: 1,
+            markers: false,
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      // Tagline exit animation
+      gsap.fromTo(
         taglineRef.current,
-        { y: 0, opacity: 1 },
-        { y: '-12vh', opacity: 0, ease: 'power2.in' },
-        0.72
+        { opacity: 1, y: 0 },
+        {
+          opacity: 0,
+          y: -30,
+          duration: 1.2,
+          ease: 'power2.inOut',
+          scrollTrigger: {
+            trigger: section,
+            start: 'bottom center',
+            end: 'bottom top',
+            scrub: 1,
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      // Robot exit animation
+      gsap.fromTo(
         robotRef.current,
-        { y: '12vh', scale: 1, opacity: 1 },
-        { y: '22vh', scale: 0.95, opacity: 0, ease: 'power2.in' },
-        0.7
+        { opacity: 1, y: 0, scale: 1 },
+        {
+          opacity: 0,
+          y: 40,
+          scale: 0.95,
+          duration: 1.2,
+          ease: 'power2.inOut',
+          scrollTrigger: {
+            trigger: section,
+            start: 'bottom center',
+            end: 'bottom top',
+            scrub: 1,
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      // Microcopy exit animation
+      gsap.fromTo(
         microcopyRef.current,
-        { x: 0, opacity: 1 },
-        { x: '-8vw', opacity: 0, ease: 'power2.in' },
-        0.75
+        { opacity: 1, x: 0 },
+        {
+          opacity: 0,
+          x: -30,
+          duration: 1.2,
+          ease: 'power2.inOut',
+          scrollTrigger: {
+            trigger: section,
+            start: 'bottom center',
+            end: 'bottom top',
+            scrub: 1,
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      // CTA exit animation
+      gsap.fromTo(
         ctaRef.current,
-        { x: 0, opacity: 1 },
-        { x: '8vw', opacity: 0, ease: 'power2.in' },
-        0.75
+        { opacity: 1, x: 0 },
+        {
+          opacity: 0,
+          x: 30,
+          duration: 1.2,
+          ease: 'power2.inOut',
+          scrollTrigger: {
+            trigger: section,
+            start: 'bottom center',
+            end: 'bottom top',
+            scrub: 1,
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      // Waves fade out
+      gsap.fromTo(
         wavesRef.current,
         { opacity: 0.25 },
-        { opacity: 0, ease: 'power2.in' },
-        0.8
+        {
+          opacity: 0,
+          duration: 1.2,
+          ease: 'power2.inOut',
+          scrollTrigger: {
+            trigger: section,
+            start: 'bottom center',
+            end: 'bottom top',
+            scrub: 1,
+          },
+        }
       );
     }, section);
 

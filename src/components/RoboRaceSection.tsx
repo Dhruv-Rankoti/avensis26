@@ -31,102 +31,102 @@ export default function RoboRaceSection() {
 
     // Desktop: Full animations
     const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=130%',
-          pin: true,
-          scrub: 0.6,
-        },
-      });
-
-      // ENTRANCE (0% - 30%)
-      scrollTl.fromTo(
+      gsap.fromTo(
         titleLeftRef.current,
-        { x: '-40vw', opacity: 0 },
-        { x: 0, opacity: 1, ease: 'none' },
-        0
+        { x: -50, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         titleRightRef.current,
-        { x: '40vw', opacity: 0 },
-        { x: 0, opacity: 1, ease: 'none' },
-        0
+        { x: 50, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         vehicleRef.current,
-        { y: '80vh', scale: 0.75, rotate: 8, opacity: 0 },
-        { y: 0, scale: 1, rotate: 0, opacity: 1, ease: 'none' },
-        0
+        { y: 60, scale: 0.85, opacity: 0 },
+        {
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          duration: 1,
+          ease: 'back.out(1.2)',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         trackRef.current,
         { opacity: 0 },
-        { opacity: 1, ease: 'none' },
-        0.1
+        {
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.1,
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         ctaRef.current,
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0.15
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.15,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         labelRef.current,
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0.2
-      );
-
-      // SETTLE (30% - 70%): Hold
-
-      // EXIT (70% - 100%)
-      scrollTl.fromTo(
-        titleLeftRef.current,
-        { x: 0, opacity: 1 },
-        { x: '-18vw', opacity: 0, ease: 'power2.in' },
-        0.7
-      );
-
-      scrollTl.fromTo(
-        titleRightRef.current,
-        { x: 0, opacity: 1 },
-        { x: '18vw', opacity: 0, ease: 'power2.in' },
-        0.7
-      );
-
-      scrollTl.fromTo(
-        vehicleRef.current,
-        { x: 0, scale: 1, opacity: 1 },
-        { x: '35vw', scale: 0.92, opacity: 0, ease: 'power2.in' },
-        0.7
-      );
-
-      scrollTl.fromTo(
-        trackRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.75
-      );
-
-      scrollTl.fromTo(
-        ctaRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.8
-      );
-
-      scrollTl.fromTo(
-        labelRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.82
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.2,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
     }, section);
 

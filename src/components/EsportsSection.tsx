@@ -32,116 +32,120 @@ export default function EsportsSection() {
 
     // Desktop: Full animations
     const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=130%',
-          pin: true,
-          scrub: 0.6,
-        },
-      });
-
-      // ENTRANCE (0% - 30%)
-      scrollTl.fromTo(
+      gsap.fromTo(
         titleRef.current,
-        { y: '-35vh', opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         leftTagRef.current,
-        { x: '-12vw', opacity: 0 },
-        { x: 0, opacity: 1, ease: 'none' },
-        0.05
+        { x: -30, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         rightTagRef.current,
-        { x: '12vw', opacity: 0 },
-        { x: 0, opacity: 1, ease: 'none' },
-        0.05
+        { x: 30, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         controllerRef.current,
-        { y: '70vh', scale: 0.8, rotateX: 25, opacity: 0 },
-        { y: 0, scale: 1, rotateX: 0, opacity: 1, ease: 'none' },
-        0
+        { y: 50, scale: 0.85, opacity: 0 },
+        {
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          duration: 1,
+          ease: 'back.out(1.2)',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         descriptorRef.current,
-        { y: '6vh', opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0.15
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.15,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         ctaRef.current,
-        { y: '6vh', opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0.2
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.2,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         hudElementsRef.current,
         { opacity: 0 },
-        { opacity: 1, ease: 'none' },
-        0.1
-      );
-
-      // SETTLE (30% - 70%): Hold
-
-      // EXIT (70% - 100%)
-      scrollTl.fromTo(
-        titleRef.current,
-        { y: 0, opacity: 1 },
-        { y: '-14vh', opacity: 0, ease: 'power2.in' },
-        0.7
-      );
-
-      scrollTl.fromTo(
-        leftTagRef.current,
-        { x: 0, opacity: 1 },
-        { x: '-8vw', opacity: 0, ease: 'power2.in' },
-        0.72
-      );
-
-      scrollTl.fromTo(
-        rightTagRef.current,
-        { x: 0, opacity: 1 },
-        { x: '8vw', opacity: 0, ease: 'power2.in' },
-        0.72
-      );
-
-      scrollTl.fromTo(
-        controllerRef.current,
-        { y: 0, scale: 1, opacity: 1 },
-        { y: '26vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
-        0.7
-      );
-
-      scrollTl.fromTo(
-        descriptorRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.75
-      );
-
-      scrollTl.fromTo(
-        ctaRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.78
-      );
-
-      scrollTl.fromTo(
-        hudElementsRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.8
+        {
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.1,
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
     }, section);
 

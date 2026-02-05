@@ -52,88 +52,85 @@ export default function ConfessionSection() {
 
     // Desktop: Full animations
     const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=130%',
-          pin: true,
-          scrub: 0.6,
-        },
-      });
-
-      // ENTRANCE (0% - 30%)
-      scrollTl.fromTo(
+      // Simple entrance animations on scroll trigger
+      gsap.fromTo(
         titleRef.current,
-        { y: '-28vh', opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         taglineRef.current,
-        { y: '-20vh', opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0.05
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         heartRef.current,
-        { y: '60vh', scale: 0.7, opacity: 0 },
-        { y: '8vh', scale: 1, opacity: 1, ease: 'none' },
-        0
+        { scale: 0.8, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1,
+          ease: 'back.out(1.2)',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         circuitRef.current,
         { opacity: 0 },
-        { opacity: 1, ease: 'none' },
-        0.1
+        {
+          opacity: 1,
+          duration: 1,
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
 
-      scrollTl.fromTo(
+      gsap.fromTo(
         ctaRef.current,
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0.2
-      );
-
-      // SETTLE (30% - 70%): Hold
-
-      // EXIT (70% - 100%)
-      scrollTl.fromTo(
-        titleRef.current,
-        { y: 0, opacity: 1 },
-        { y: '-12vh', opacity: 0, ease: 'power2.in' },
-        0.7
-      );
-
-      scrollTl.fromTo(
-        taglineRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.72
-      );
-
-      scrollTl.fromTo(
-        heartRef.current,
-        { y: '8vh', scale: 1, opacity: 1 },
-        { y: '22vh', scale: 0.92, opacity: 0, ease: 'power2.in' },
-        0.7
-      );
-
-      scrollTl.fromTo(
-        circuitRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.75
-      );
-
-      scrollTl.fromTo(
-        ctaRef.current,
-        { opacity: 1 },
-        { opacity: 0, ease: 'power2.in' },
-        0.8
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.2,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       );
     }, section);
 
@@ -218,13 +215,13 @@ export default function ConfessionSection() {
           ref={heartRef}
           src="/valentine_heart.png"
           alt="Circuit Heart"
-          className="w-[75vw] md:w-[46vw] max-w-170 h-auto object-contain"
+          className="w-[75vw] md:w-[46vw] max-w-170 h-auto object-contain md:mt-60"
           style={{ opacity: 0 }}
         />
       </div>
 
       {/* Event schedule preview */}
-      <div className="absolute left-1/2 top-[82%] md:top-[85%] -translate-x-1/2 flex flex-wrap justify-center gap-3 md:gap-6 z-20 px-4">
+      <div className="absolute left-1/2 top-[70%] md:top-[95%] -translate-x-1/2 flex flex-wrap justify-center gap-3 md:gap-6 z-20 px-4">
         <div className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-[#0B0E16]/80 border border-[#FF2BD6]/30 rounded-lg backdrop-blur-sm">
           <Calendar size={14} className="text-[#FF2BD6]" />
           <span className="font-mono text-[10px] md:text-xs text-[#A7B0C8]">Feb 12-13</span>
