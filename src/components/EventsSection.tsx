@@ -49,7 +49,7 @@ const events = [
   {
     id: 5,
     title: 'Chess Tournament',
-    description: 'Outsmart your o+pponents, plan your moves, and claim the checkmate.',
+    description: 'Outsmart your opponents, plan your moves, and claim the checkmate.',
     category: 'gaming',
     image: '/event_valorant.jpg',
     tags: ['Esports', '₹75K Prize'],
