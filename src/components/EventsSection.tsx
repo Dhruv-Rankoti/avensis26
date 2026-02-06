@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect, useState } from 'react';
+import { useRef, useLayoutEffect, useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Code, Gamepad2, Cpu, Music, Heart } from 'lucide-react';
@@ -135,10 +135,28 @@ export default function EventsSection() {
   const gridRef = useRef<HTMLDivElement>(null);
   
   const [activeCategory, setActiveCategory] = useState('all');
+  const [visibleCount, setVisibleCount] = useState(3);
 
   const filteredEvents = activeCategory === 'all' 
     ? events 
     : events.filter(e => e.category === activeCategory);
+
+  const getInitialCount = () => {
+    const width = window.innerWidth;
+    if (width >= 1024) return 6;
+    if (width >= 640) return 4;
+    return 3;
+  };
+
+  useEffect(() => {
+    const handleResize = () => setVisibleCount(getInitialCount());
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const displayedEvents = filteredEvents.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredEvents.length;
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
@@ -230,7 +248,10 @@ export default function EventsSection() {
             return (
               <button
                 key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
+                onClick={() => {
+                  setActiveCategory(cat.id);
+                  setVisibleCount(getInitialCount());
+                }}
                 className={`flex items-center gap-1.5 md:gap-2 px-3 md:px-5 py-2 md:py-2.5 rounded-full font-mono text-xs md:text-sm tracking-wider transition-all duration-300 cursor-pointer ${
                   activeCategory === cat.id
                     ? 'bg-[#7B2BFF] text-white border-glow'
@@ -249,7 +270,7 @@ export default function EventsSection() {
           ref={gridRef}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
         >
-          {filteredEvents.map((event) => (
+          {displayedEvents.map((event) => (
             <div
               key={event.id}
               className="event-card cyber-card group cursor-pointer"
@@ -288,6 +309,21 @@ export default function EventsSection() {
             </div>
           ))}
         </div>
+
+        {/* Load More Button */}
+        {hasMore && (
+          <div className="flex justify-center mt-8 md:mt-12">
+            <button
+              onClick={() => setVisibleCount(prev => prev + getInitialCount())}
+              className="cyber-button group"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                Load More
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
