@@ -26,10 +26,10 @@ const scheduleData = [
       },
       {
         time: '10:30',
-        title: 'Hackathon',
+        title: 'HackAvensis',
         location: '1st floor MSIT, 06 auditorium',
         type: 'tech',
-        description: '24-hour coding marathon'
+        description: '24-hour coding hackathon'
       },
       {
         time: '11:00',
@@ -327,9 +327,9 @@ export default function ScheduleSection() {
         </div>
 
         {/* Timeline */}
-        <div ref={contentRef} className="relative overflow-x-hidden">
+        <div ref={contentRef} className="relative">
           {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-linear-to-b from-[#7B2BFF] via-[#00F0FF] to-[#7B2BFF] opacity-30 pointer-events-none" style={{ maxHeight: '100%' }} />
+          <div className="absolute left-8 lg:left-8 top-0 bottom-0 w-px bg-linear-to-b from-[#7B2BFF] via-[#00F0FF] to-[#7B2BFF] opacity-30 pointer-events-none" style={{ maxHeight: '100%' }} />
           
           <div className="space-y-6 max-w-full">
             {scheduleData[activeDay].events
@@ -342,15 +342,12 @@ export default function ScheduleSection() {
               .map((event, index) => (
               <div
                 key={index}
-                className="timeline-item relative flex items-start gap-6 group"
+                className="timeline-item relative flex items-start gap-6 group "
               >
                 {/* Time marker */}
                 <div className="relative shrink-0">
-                  <div 
-                    className="w-4 h-4 rounded-full border-2 border-current pulse-glow"
-                    style={{ color: typeColors[event.type as keyof typeof typeColors] }}
-                  />
-                  <div className="absolute -left-8 top-1/2 -translate-y-1/2 font-mono text-sm font-bold text-[#F4F6FF] bg-[#0B0E16] px-2 py-1 rounded">
+                  <div className="w-4 h-4" />
+                  <div className="absolute -top-8 left-0 sm:-left-8 sm:top-1/2 sm:-translate-y-1/2 sm:translate-x-0 font-mono text-sm font-bold text-[#F4F6FF] px-2 py-2 rounded whitespace-nowrap">
                     {event.time}
                   </div>
                 </div>
