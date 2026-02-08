@@ -13,7 +13,7 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-  { icon: Instagram, href: 'https://www.instagram.com/avensis_2k26?igsh=MTM5YnRqNGp4ejQwMg==', label: 'Instagram' },
+  { icon: Instagram, href: 'https://www.instagram.com/avensis_2k26', label: 'Instagram' },
 ];
 
 export default function FooterSection() {
@@ -203,7 +203,7 @@ export default function FooterSection() {
               © AVENSIS'26, MSIT. All rights reserved.
             </p>
             <p className="font-mono text-[10px] md:text-xs text-[#A7B0C8]/60">
-              Designed with <span className="text-[#FF2BD6]">♥</span> by Naman for the future
+              Designed with <span className="text-[#FF2BD6]">♥</span> by Naman, Dhruv & Sneha for the future
             </p>
           </div>
         </div>
