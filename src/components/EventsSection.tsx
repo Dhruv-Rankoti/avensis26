@@ -157,9 +157,9 @@ export default function EventsSection() {
 
   const getInitialCount = () => {
     const width = window.innerWidth;
-    if (width >= 1024) return 6;
-    if (width >= 640) return 4;
-    return 3;
+    if (width >= 1024) return 10;
+    if (width >= 640) return 6;
+    return 4;
   };
 
   useEffect(() => {
