@@ -25,12 +25,12 @@ const events = [
   },
   {
     id: 2,
-    title: 'CodeCubicle',
+    title: 'Algo Quest',
     description: 'Solve algorithmic problems, optimize your code, and compete for the top spot.',
     category: 'tech',
-    image: '/event_hackathon.jpg',
+    image: '/algoquest.jpeg',
     // tags: ['Competition', '24 Hours'],
-    registerLink: '#codecubicle',
+    registerLink: 'https://unstop.com/p/algo-quest-msit-1636987',
   },
   {
     id: 3,
