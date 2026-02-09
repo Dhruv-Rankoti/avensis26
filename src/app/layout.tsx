@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Avensis'26",
   description: "Tech Festival of MSIT",
+  icons: {
+    icon: "/avensis.ico",
+  },
 };
 
 export default function RootLayout({
