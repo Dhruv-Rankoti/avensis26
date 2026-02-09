@@ -1,7 +1,8 @@
 import { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Award, Star, Zap } from 'lucide-react';
+import { Award, Star } from 'lucide-react';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,16 +12,7 @@ const sponsorTiers = [
     icon: Award,
     color: '#FFAA2B',
     sponsors: [
-      { name: 'TechCorp', logo: 'TC' },
-    ],
-  },
-  {
-    name: 'Powered By',
-    icon: Zap,
-    color: '#7B2BFF',
-    sponsors: [
-      { name: 'CloudNine', logo: 'C9' },
-      { name: 'DataFlow', logo: 'DF' },
+      { name: 'Saras.ai', logo: '/sponsors/sarasai.png' },
     ],
   },
   {
@@ -28,10 +20,8 @@ const sponsorTiers = [
     icon: Star,
     color: '#00F0FF',
     sponsors: [
-      { name: 'CodeBase', logo: 'CB' },
-      { name: 'DevStack', logo: 'DS' },
-      { name: 'NetWave', logo: 'NW' },
-      { name: 'ByteSync', logo: 'BS' },
+      { name: 'AbhiBus', logo: '/sponsors/abhibus.png' },
+      { name: 'Unstop', logo: '/sponsors/unstop.png' },
     ],
   },
 ];
@@ -150,33 +140,41 @@ export default function SponsorsSection() {
 
                 {/* Sponsor logos */}
                 <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-                  {tier.sponsors.map((sponsor) => (
-                    <div
-                      key={sponsor.name}
-                      className="sponsor-logo group relative w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 bg-[#0B0E16] border border-white/10 rounded-xl flex items-center justify-center cursor-pointer transition-all duration-300 hover:border-[#7B2BFF]/50 hover:-translate-y-1"
-                    >
-                      {/* Glow effect */}
+                  {tier.sponsors.map((sponsor) => {
+                    const isTitle = tier.name === 'Title Partner';
+                    return (
                       <div
-                        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        style={{
-                          boxShadow: `0 0 30px ${tier.color}20`,
-                        }}
-                      />
-                      
-                      {/* Logo content */}
-                      <div className="relative z-10 text-center">
-                        <span
-                          className="font-orbitron font-bold text-xl md:text-2xl lg:text-3xl"
-                          style={{ color: tier.color }}
-                        >
-                          {sponsor.logo}
-                        </span>
-                        <p className="font-mono text-[10px] md:text-xs text-[#A7B0C8] mt-1 md:mt-2">
-                          {sponsor.name}
-                        </p>
+                        key={sponsor.name}
+                        className={`sponsor-logo group relative ${isTitle ? 'w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64' : 'w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40'} bg-[#0B0E16] border border-white/10 rounded-xl flex items-center justify-center cursor-pointer transition-all duration-300 hover:border-[#7B2BFF]/50 hover:-translate-y-1`}
+                      >
+                        {/* Glow effect */}
+                        <div
+                          className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          style={{
+                            boxShadow: `0 0 30px ${tier.color}20`,
+                          }}
+                        />
+                        
+                        {/* Logo content */}
+                        <div className="relative z-10 w-full h-full flex items-center justify-center p-4">
+                          {sponsor.logo ? (
+                            <Image
+                              src={sponsor.logo}
+                              alt={sponsor.name}
+                              fill
+                              className="object-contain p-4"
+                            />
+                          ) : (
+                            <>
+                              <p className="font-mono text-[10px] md:text-xs text-[#A7B0C8] mt-1 md:mt-2">
+                                {sponsor.name}
+                              </p>
+                            </>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             );
@@ -188,9 +186,9 @@ export default function SponsorsSection() {
           <p className="font-inter text-[#A7B0C8] mb-4 md:mb-6 text-sm md:text-base">
             Want to sponsor AVENSIS'26?
           </p>
-          <button className="cyber-button text-sm md:text-base">
+          <a href="mailto:avensis@msit.in" className="cyber-button text-sm md:text-base inline-block">
             <span className="relative z-10">Become a Sponsor</span>
-          </button>
+          </a>
         </div>
       </div>
     </section>
