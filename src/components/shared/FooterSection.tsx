@@ -181,7 +181,7 @@ export default function FooterSection() {
                     href="mailto:avensis@msit.in"
                     className="font-inter text-xs md:text-sm text-[#A7B0C8] hover:text-[#7B2BFF] transition-colors"
                   >
-                    avensis@msit.in
+                    snehajuyal20@gmail.com
                   </a>
                 </li>
                 <li className="flex items-center gap-2 md:gap-3 justify-center sm:justify-start">
