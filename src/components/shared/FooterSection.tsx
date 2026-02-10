@@ -95,16 +95,16 @@ export default function FooterSection() {
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
-          <button className="cyber-button pulse-glow text-base md:text-lg px-8 md:px-10 py-3 md:py-4 w-full sm:w-auto">
+          <a href='https://forms.gle/XUqytVcRGzmcfprJ7' className="cyber-button pulse-glow text-base md:text-lg px-8 md:px-10 py-3 md:py-4 w-full sm:w-auto">
             <span className="relative z-10 flex items-center justify-center gap-2">
               Register Now
               <ArrowUpRight size={16} className="md:w-4.5 md:h-4.5" />
             </span>
-          </button>
-          <button className="flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 border border-white/20 rounded-lg font-mono text-xs md:text-sm text-[#A7B0C8] hover:border-[#7B2BFF]/50 hover:text-[#F4F6FF] transition-all w-full sm:w-auto">
+          </a>
+          <a href='https://drive.google.com/file/d/15szRVvIvydO-wGDeRWCCm6jAaqVrqVX7/view?usp=sharing' className="flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 border border-white/20 rounded-lg font-mono text-xs md:text-sm text-[#A7B0C8] hover:border-[#7B2BFF]/50 hover:text-[#F4F6FF] transition-all w-full sm:w-auto">
             <Download size={14} className="md:w-4 md:h-4" />
             Download Brochure
-          </button>
+          </a>
         </div>
       </div>
 
@@ -181,16 +181,16 @@ export default function FooterSection() {
                     href="mailto:avensis@msit.in"
                     className="font-inter text-xs md:text-sm text-[#A7B0C8] hover:text-[#7B2BFF] transition-colors"
                   >
-                    avensis@msit.in
+                    snehajuyal20@gmail.com
                   </a>
                 </li>
                 <li className="flex items-center gap-2 md:gap-3 justify-center sm:justify-start">
                   <Phone size={14} className="text-[#7B2BFF] shrink-0 md:w-4 md:h-4" />
                   <a
-                    href="tel:+911234567890"
+                    href="tel:+916377828916"
                     className="font-inter text-xs md:text-sm text-[#A7B0C8] hover:text-[#7B2BFF] transition-colors"
                   >
-                    9992127106
+                    6377828916
                   </a>
                 </li>
               </ul>
